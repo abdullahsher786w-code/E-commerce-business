@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products | Exclusive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ["Poppins", "system-ui", "sans-serif"] }, colors: { brand: "#DB4444" } } }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    /* Jab image src="#" ho to alt text na dikhe */
+    .card-img { color: transparent; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="font-sans text-neutral-800 bg-white">
+
+  <div class="bg-black text-white text-center text-sm py-3 px-4">
+    Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+    <a href="" class="underline font-medium ml-2">ShopNow</a>
+  </div>
+
+  <header class="border-b border-neutral-200 sticky top-0 bg-white z-30">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold">Exclusive</a>
+      <nav class="hidden md:flex gap-10">
+        <a href="index.html" class="hover:text-brand">Home</a>
+        <a href="contact.html" class="hover:text-brand">Contact</a>
+        <a href="about.html" class="hover:text-brand">About</a>
+        <a href="signup.html" class="hover:text-brand">Sign Up</a>
+      </nav>
+      <a href="contact.html" class="md:hidden text-sm font-medium text-brand">Contact</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <p class="text-sm text-neutral-500 mb-6">
+      <a href="index.html" class="hover:text-brand">Home</a><span class="mx-2">/</span><span class="text-neutral-900">Products</span>
+    </p>
+    <h1 class="text-3xl md:text-4xl font-semibold mb-6">Shop by category</h1>
+
+    <!-- Category links (JS se banenge) -->
+    <nav id="catNav" class="flex flex-wrap gap-2 mb-12" aria-label="Categories"></nav>
+
+    <!-- Sections yahan JS se banenge -->
+    <div id="sections" class="space-y-16"></div>
+  </main>
+  <section id="shop" class="mx-auto mt-10 mb-[100px] max-w-[1170px] px-4">
+
+  <!-- Category buttons (filled by JS) -->
+  <div id="chips" class="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none]"></div>
+
+  <p id="count" class="mt-8 text-sm text-gray-500"></p>
+
+  <!-- Product cards (filled by JS) -->
+  <div id="grid" class="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-[30px] lg:grid-cols-4"></div>
+
+  <!-- Shown when a category has no products -->
+  <div id="empty" class="hidden py-20 text-center">
+    <p class="text-lg font-medium">No products in this category yet.</p>
+    <a href="products.html?category=all" class="mt-6 inline-block rounded bg-[#DB4444] px-10 py-4 text-white hover:bg-red-600">View All Products</a>
+  </div>
+</section>
+
+<div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded bg-black px-6 py-3 text-sm text-white opacity-0 transition-opacity duration-300"></div>
+
+<script>
+(function () {
+  /* =========================================================
+     1) CATEGORY BUTTONS  (slug = what comes after ?category=)
+     ========================================================= */
+  var CATEGORIES = [
+    { slug: 'all',             name: 'All Products' },
+    { slug: 'womens-fashion',  name: "Woman's Fashion" },
+    { slug: 'mens-fashion',    name: "Men's Fashion" },
+    { slug: 'electronics',     name: 'Electronics' },
+    { slug: 'home-lifestyle',  name: 'Home & Lifestyle' },
+    { slug: 'medicine',        name: 'Medicine' },
+    { slug: 'sports-outdoor',  name: 'Sports & Outdoor' },
+    { slug: 'babys-toys',      name: "Baby's & Toys" },
+    { slug: 'groceries-pets',  name: 'Groceries & Pets' },
+    { slug: 'health-beauty',   name: 'Health & Beauty' }
+  ];
+  // Extra slugs that also work in the URL (your Phones / Computers... cards)
+  var EXTRA_NAMES = { phones: 'Phones', computers: 'Computers', smartwatch: 'SmartWatch', camera: 'Camera', headphones: 'HeadPhones', gaming: 'Gaming' };
+
+  /* =========================================================
+     2) PRODUCTS  -> put every product in one or more categories
+     Add a new product = add one line here.
+     ========================================================= */
+  var PRODUCTS = [
+    { id: 101, name: 'Gucci duffle bag',         price: 960,  old: 1160, rating: 5,   reviews: 65,  cats: ['womens-fashion'],                          img: 'gucci bag.png' },
+    { id: 303, name: 'The north coat',           price: 260,  old: 360,  rating: 5,   reviews: 65,  cats: ['womens-fashion'],                          img: 'north coat.png' },
+    { id: 104, name: 'Quilted Satin Jacket',     price: 660,            rating: 4.5, reviews: 55,  cats: ['mens-fashion'],                            img: 'jacket.png' },
+    { id: 102, name: 'RGB liquid CPU Cooler',    price: 160,  old: 170,  rating: 5,   reviews: 65,  cats: ['electronics', 'computers', 'gaming'],      img: 'cpu cooler.png' },
+    { id: 103, name: 'GP11 Shooter USB Gamepad', price: 660,            rating: 4.5, reviews: 55,  cats: ['electronics', 'gaming'],                   img: 'controller.png' },
+    { id: 201, name: 'ASUS FHD Gaming Laptop',   price: 700,            rating: 5,   reviews: 325, cats: ['electronics', 'computers', 'gaming'],      img: 'gaminglaptop.png' },
+    { id: 202, name: 'IPS LCD Gaming Monitor',   price: 370,  old: 400,  rating: 5,   reviews: 99,  cats: ['electronics', 'computers', 'gaming'],      img: 'lcd.png' },
+    { id: 203, name: 'HAVIT HV-G92 Gamepad',     price: 120,  old: 160,  rating: 5,   reviews: 88,  cats: ['electronics', 'gaming'],                   img: 'usb gampad.png' },
+    { id: 204, name: 'AK-900 Wired Keyboard',    price: 960,  old: 1160, rating: 4,   reviews: 75,  cats: ['electronics', 'computers', 'gaming'],      img: 'rgbkeyboard.png' },
+    { id: 402, name: 'CANON EOS DSLR Camera',    price: 360,            rating: 4,   reviews: 95,  cats: ['electronics', 'camera'],                   img: 'dslr camera.png' },
+    { id: 301, name: 'S-Series Comfort Chair',   price: 375,  old: 400,  rating: 4.5, reviews: 99,  cats: ['home-lifestyle'],                          img: 'chair.png' },
+    { id: 302, name: 'S-Series Comfort Chair',   price: 375,  old: 400,  rating: 4.5, reviews: 99,  cats: ['home-lifestyle'],                          img: 'chair2.png' },
+    { id: 304, name: 'Small BookSelf',           price: 360,            rating: 5,   reviews: 65,  cats: ['home-lifestyle'],                          img: 'bookshelf.png' },
+    { id: 405, name: 'Jr. Zoom Soccer Cleats',   price: 1160,           rating: 5,   reviews: 35,  cats: ['sports-outdoor'],                          img: 'soccer.png' },
+    { id: 404, name: 'Kids Electric Car',        price: 960,            rating: 5,   reviews: 65,  cats: ['babys-toys'],                              img: 'kids car.png' },
+    { id: 401, name: 'Breed Dry Dog Food',       price: 100,            rating: 3,   reviews: 35,  cats: ['groceries-pets'],                          img: 'dog food.jpg' },
+    { id: 403, name: 'Curology Product Set',     price: 500,            rating: 4,   reviews: 145, cats: ['health-beauty'],                           img: 'curulogy.png' }
+  ];
+
+  /* ---------- helpers ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var read = function (k) { try { var v = JSON.parse(localStorage.getItem(k)); if (Array.isArray(v)) return v; } catch (e) {} return []; };
+  var write = function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  var inWish = function (id) { return read('wishlist').some(function (i) { return i.id === id; }); };
+  var tt;
+  function toast(m) {
+    var t = $('toast'); t.textContent = m; t.classList.remove('opacity-0');
+    clearTimeout(tt); tt = setTimeout(function () { t.classList.add('opacity-0'); }, 2000);
+  }
+  function stars(r) {
+    return '<span class="relative inline-block whitespace-nowrap text-gray-300">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:' + (r / 5 * 100) + '%">★★★★★</span></span>';
+  }
+  var HEART = function (on) {
+    return '<svg class="h-4 w-4" style="' + (on ? 'color:#DB4444' : '') + '" fill="' + (on ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
+  };
+  var EYE = '<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+
+  function card(p) {
+    return '<article class="group">' +
+      '<div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">' +
+        '<a href="product.html?id=' + p.id + '" aria-label="' + p.name + '" class="absolute inset-0 flex items-center justify-center">' +
+          '<img src="' + p.img + '" alt="' + p.name + '" class="max-h-[65%] max-w-[65%] object-contain" onerror="this.style.visibility=\'hidden\'" /></a>' +
+        '<button type="button" data-wish="' + p.id + '" aria-label="Add to wishlist" class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm">' + HEART(inWish(p.id)) + '</button>' +
+        '<a href="product.html?id=' + p.id + '" aria-label="View ' + p.name + '" class="absolute right-3 top-14 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]">' + EYE + '</a>' +
+        '<button type="button" data-add="' + p.id + '" class="absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>' +
+      '</div>' +
+      '<h3 class="mt-4 text-sm font-medium sm:text-base"><a href="product.html?id=' + p.id + '" class="hover:text-[#DB4444]">' + p.name + '</a></h3>' +
+      '<p class="mt-1 flex flex-wrap items-center gap-x-2 text-sm text-[#DB4444] sm:text-base">$' + p.price +
+        (p.old ? '<span class="text-gray-500 line-through">$' + p.old + '</span>' : '') +
+        '<span class="text-xs sm:text-sm">' + stars(p.rating) + ' <span class="font-medium text-gray-500">(' + p.reviews + ')</span></span></p>' +
+    '</article>';
+  }
+
+  /* ---------- which category is in the URL? ---------- */
+  function currentSlug() {
+    var s = new URLSearchParams(location.search).get('category');
+    return (s || 'all').toLowerCase();
+  }
+  function nameOf(slug) {
+    var c = CATEGORIES.filter(function (x) { return x.slug === slug; })[0];
+    return c ? c.name : (EXTRA_NAMES[slug] || slug);
+  }
+
+  /* ---------- draw ---------- */
+  function render() {
+    var slug = currentSlug();
+
+    // buttons
+    $('chips').innerHTML = CATEGORIES.map(function (c) {
+      var on = c.slug === slug;
+      return '<a href="products.html?category=' + c.slug + '" data-slug="' + c.slug + '" class="shrink-0 rounded border px-5 py-2 text-sm transition ' +
+        (on ? 'border-[#DB4444] bg-[#DB4444] text-white' : 'border-black/30 bg-white text-black hover:border-[#DB4444]') + '">' + c.name + '</a>';
+    }).join('');
+
+    // cards for this category
+    var list = PRODUCTS.filter(function (p) { return slug === 'all' || p.cats.indexOf(slug) !== -1; });
+    $('grid').innerHTML = list.map(card).join('');
+    $('empty').classList.toggle('hidden', list.length > 0);
+    $('count').textContent = list.length ? 'Showing ' + list.length + ' product' + (list.length > 1 ? 's' : '') + ' in ' + nameOf(slug) : '';
+    document.title = nameOf(slug) + ' | Exclusive';
+  }
+
+  // Click a button -> change category without reloading the page
+  $('chips').addEventListener('click', function (e) {
+    var a = e.target.closest('[data-slug]'); if (!a) return;
+    e.preventDefault();
+    history.pushState(null, '', 'products.html?category=' + a.dataset.slug);
+    render();
+  });
+  window.addEventListener('popstate', render);
+
+  /* ---------- cart & wishlist ---------- */
+  $('grid').addEventListener('click', function (e) {
+    var add = e.target.closest('[data-add]');
+    if (add) {
+      var p = PRODUCTS.filter(function (x) { return x.id === Number(add.dataset.add); })[0];
+      var cart = read('cart'), f = cart.filter(function (i) { return i.id === p.id; })[0];
+      if (f) f.qty += 1; else cart.push({ id: p.id, name: p.name, price: p.price, qty: 1, img: p.img });
+      write('cart', cart); toast(p.name + ' added to cart'); return;
+    }
+    var w = e.target.closest('[data-wish]');
+    if (w) {
+      var q = PRODUCTS.filter(function (x) { return x.id === Number(w.dataset.wish); })[0];
+      var list = read('wishlist');
+      if (list.some(function (i) { return i.id === q.id; })) { list = list.filter(function (i) { return i.id !== q.id; }); toast('Removed from wishlist'); }
+      else { list.push({ id: q.id, name: q.name, price: q.price, old: q.old, img: q.img }); toast('Added to wishlist'); }
+      write('wishlist', list); w.innerHTML = HEART(inWish(q.id));
+    }
+  });
+
+  render();
+})();
+</script>
+
+  <footer class="bg-black text-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col sm:flex-row gap-6 justify-between text-sm">
+      <div>
+        <p class="text-2xl font-bold mb-3">Exclusive</p>
+        <p>111 Bijoy Sarani, Dhaka, DH 1515, Bangladesh.</p>
+        <p>exclusive@gmail.com &nbsp;|&nbsp; +88015-88888-9999</p>
+      </div>
+      <ul class="flex gap-6 items-start">
+        <li><a href="privacypolicy.html" class="hover:text-brand">Privacy Policy</a></li>
+        <li><a href="terms.html" class="hover:text-brand">Terms Of Use</a></li>
+        <li><a href="faq.html" class="hover:text-brand">FAQ</a></li>
+        <li><a href="contact.html" class="hover:text-brand">Contact</a></li>
+      </ul>
+    </div>
+    <div class="border-t border-neutral-800 py-4 text-center text-sm text-neutral-400">
+      &copy; Copyright Rimel 2022. All right reserved
+    </div>
+  </footer>
+
+  
+</body>
+</html>

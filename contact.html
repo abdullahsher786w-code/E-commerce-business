@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Exclusive</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="font-['Poppins'] text-black bg-white">
+
+    <div class="bg-black text-white text-sm flex items-center justify-center relative h-12 px-4">
+  <p class="text-xs sm:text-sm">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#" class="font-semibold underline ml-2">ShopNow</a></p>
+  <select class="absolute right-4 lg:right-[135px] bg-black text-white text-sm hidden sm:block"><option>English</option><option>Urdu</option></select>
+</div>
+
+<header class="border-b border-black/30">
+  <div class="mx-auto flex max-w-[1170px] items-center justify-between px-4 py-10 pb-4 pt-10">
+    <a href="index.html" class="font-['Inter'] text-2xl font-bold tracking-wide">Exclusive</a>
+    <nav class="hidden gap-12 md:flex">
+      <a href="index.html" class="border-b border-black/50 pb-1">Home</a>
+      <a href="contact.html" class="pb-1">Contact</a>
+      <a href="about.html" class="pb-1">About</a>
+      <a href="signup.html" class="pb-1">Sign Up</a>
+    </nav>
+    <div class="flex items-center gap-6">
+      <div class="hidden h-[38px] w-[243px] items-center justify-between rounded bg-[#F5F5F5] px-5 lg:flex">
+        <input class="w-full bg-transparent text-xs outline-none placeholder:text-black/50" placeholder="What are you looking for?">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+      <a href="wishlist.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 21s-8-5.4-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.6-8 11-8 11z"/></svg></a>
+      <a href="cart.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4h11L21 7H6"/></svg></a>
+      <a href="account.html" aria-label="Account"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <button id="menuBtn" class="md:hidden" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+    </div>
+  </div>
+</header>
+
+<div id="header" data-active="Contact"></div>
+
+<main class="mx-auto max-w-[1170px] px-4">
+  <p class="mt-20 text-sm"><a href="index.html" class="text-black/50">Home</a> <span class="mx-3 text-black/50">/</span> Contact</p>
+
+  <div class="mt-20 flex flex-col gap-[30px] lg:flex-row">
+    <!-- Info card -->
+    <div class="w-full shrink-0 rounded bg-white p-8 shadow-[0_1px_13px_rgba(0,0,0,0.1)] lg:w-[340px]">
+      <div class="flex items-center gap-4">
+        <span class="flex size-10 items-center justify-center rounded-full bg-[#DB4444] text-white">📞</span>
+        <b class="font-medium">Call To Us</b>
+      </div>
+      <p class="mt-6 text-sm">We are available 24/7, 7 days a week.</p>
+      <p class="mt-4 text-sm">Phone: +92-3000-00000-0</p>
+      <hr class="my-8 border-black/50">
+      <div class="flex items-center gap-4">
+        <span class="flex size-10 items-center justify-center rounded-full bg-[#DB4444] text-white">✉️</span>
+        <b class="font-medium">Write To US</b>
+      </div>
+      <p class="mt-6 text-sm leading-6">Fill out our form and we will contact you within 24 hours.</p>
+      <p class="mt-4 text-sm">Emails: customer@exclusive.com</p>
+      <p class="mt-4 text-sm">Emails: support@exclusive.com</p>
+    </div>
+
+    <!-- Form card -->
+    <form id="contactForm" class="w-full rounded bg-white p-8 shadow-[0_1px_13px_rgba(0,0,0,0.1)]">
+      <div class="grid gap-4 md:grid-cols-3">
+        <input required type="text" placeholder="Your Name *" class="h-[50px] rounded bg-[#F5F5F5] px-4 text-base outline-none placeholder:text-black/40 focus:ring-1 focus:ring-[#DB4444]">
+        <input required type="email" placeholder="Your Email *" class="h-[50px] rounded bg-[#F5F5F5] px-4 text-base outline-none placeholder:text-black/40 focus:ring-1 focus:ring-[#DB4444]">
+        <input required type="tel" placeholder="Your Phone *" class="h-[50px] rounded bg-[#F5F5F5] px-4 text-base outline-none placeholder:text-black/40 focus:ring-1 focus:ring-[#DB4444]">
+      </div>
+      <textarea required placeholder="Your Massage" class="mt-8 h-[207px] w-full resize-none rounded bg-[#F5F5F5] p-4 text-base outline-none placeholder:text-black/40 focus:ring-1 focus:ring-[#DB4444]"></textarea>
+      <div class="mt-8 flex flex-col items-end gap-3">
+        <button type="submit" class="rounded bg-[#DB4444] px-12 py-4 font-medium text-white hover:bg-[#c23a3a]">Send Massage</button>
+        <p id="msg" class="hidden text-sm text-green-600">Thanks! Your message has been sent.</p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<div id="footer">
+    <!-- Footer -->
+<footer class="mt-16 bg-black text-white">
+  <div class="mx-auto grid max-w-[1170px] gap-10 px-4 py-20 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="space-y-4"><h3 class="font-['Inter'] text-2xl font-bold">Exclusive</h3><h4 class="text-xl">Subscribe</h4><p>Get 10% off your first order</p>
+      <div class="flex w-[217px] items-center rounded border border-white px-4 py-3"><input type="email" placeholder="Enter your email" class="w-full bg-transparent text-sm outline-none placeholder:text-white/50"><button>➤</button></div></div>
+    <div class="space-y-4"><h4 class="text-xl">Support</h4><p>111 Bijoy sarani, Dhaka,<br>DH 1515, Bangladesh.</p><p>exclusive@gmail.com</p><p>03000000000</p></div>
+    <div class="space-y-4"><h4 class="text-xl">Account</h4><a class="block" href="account.html">My Account</a><a class="block" href="signup.html">Login / Register</a><a class="block" href="cart.html">Cart</a><a class="block" href="wishlist.html">Wishlist</a><a class="block" href="index.html">Shop</a></div>
+    <div class="space-y-4"><h4 class="text-xl">Quick Link</h4><a class="block" href="privacy.html">Privacy Policy</a><a class="block" href="terms.html">Terms Of Use</a><a class="block" href="faq.html">FAQ</a><a class="block" href="contact.html">Contact</a></div>
+    <div class="space-y-4"><h4 class="text-xl">Download App</h4><small class="block text-xs text-white/70">Save $3 with App New User Only</small>
+      <div class="flex gap-2"><div class="size-20 bg-white"></div><div class="flex flex-col gap-2 text-xs"><span class="rounded border border-white/60 px-4 py-2">Google Play</span><span class="rounded border border-white/60 px-4 py-2">App Store</span></div></div>
+      <div class="flex gap-6 text-lg"><a href="#">f</a><a href="#">t</a><a href="#">ig</a><a href="#">in</a></div></div>
+  </div>
+  <div class="border-t border-white/20 py-4 text-center text-base text-white/30">© Copyright Rimel 2026. All right reserved</div>
+</footer>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

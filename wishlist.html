@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wishlist | Exclusive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#DB4444' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="font-sans text-black bg-white">
+
+  <!-- Top bar -->
+  <div class="bg-black text-white text-xs sm:text-sm py-3 px-4 text-center">
+    Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#" class="font-semibold underline ml-1">ShopNow</a>
+  </div>
+
+  <!-- Navbar -->
+  <header class="border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <a href="index.html" class="text-xl sm:text-2xl font-semibold">Exclusive</a>
+      <nav class="hidden md:flex gap-10">
+        <a href="index.html" class="hover:text-brand">Home</a>
+        <a href="contact.html" class="hover:text-brand">Contact</a>
+        <a href="about.html" class="hover:text-brand">About</a>
+        <a href="signup.html" class="hover:text-brand">Sign Up</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center bg-gray-100 rounded px-4 py-2 w-60">
+          <input type="text" placeholder="What are you looking for?" class="bg-transparent text-xs w-full outline-none" />
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <a href="wishlist.html" aria-label="Wishlist" class="relative">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          <span id="wishBadge" class="absolute -top-2 -right-2 bg-brand text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </a>
+        <a href="cart.html" aria-label="Cart" class="relative">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          <span id="cartBadge" class="absolute -top-2 -right-2 bg-brand text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </a>
+        <a href="account.html" aria-label="Account"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-[1170px] mx-auto px-4 py-16">
+
+  <!-- Wishlist -->
+  <div class="flex items-center justify-between mb-10">
+    <h2 class="text-xl">Wishlist (<span id="wishlist-count">0</span>)</h2>
+    <div id="browse" class="mt-16 flex gap-[30px] overflow-x-auto scroll-smooth [scrollbar-width:none]">
+       <!-- Card 1 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="303" data-name="The north coat" data-price="260" data-old="360" data-off="0" data-img="images/north-coat.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="products.html" class="absolute inset-0 flex items-center justify-center">
+        <img src="gucci bag.png" alt="Gucci duffle bag" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=303" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">Gucci duffle bag</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$960 <span class="text-gray-500 line-through ml-2">$1160</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 2 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="101" data-name="Gucci duffle bag" data-price="960" data-old="1160" data-off="0" data-img="images/gucci-bag.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="products.html" class="absolute inset-0 flex items-center justify-center">
+        <img src="cpu cooler.png" alt="RBG liquid CPU Cooler" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=101" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">RBG liquid CPU Cooler</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$1960 <span class="text-gray-500 line-through ml-2">$2000</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 3 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="102" data-name="RGB liquid CPU Cooler" data-price="160" data-old="170" data-off="0" data-img="images/cpu-cooler.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="products.html" class="absolute inset-0 flex items-center justify-center">
+        <img src="usb gampad.png" alt="GP11 Shooter USB Gamepad" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=102" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">GP11 Shooter USB Gamepad</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$550 <span class="text-gray-500 line-through ml-2">$600</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 4 (no old price) -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="304" data-name="Small BookSelf" data-price="360" data-old="0" data-off="0" data-img="images/bookshelf.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="products.html" class="absolute inset-0 flex items-center justify-center">
+        <img src="jacket.png" alt="Quilted Satin Jacket" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=304" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">"Quilted Satin Jacket</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$750</p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+  </div>
+    <button id="move-all"
+      class="border border-black/50 px-8 py-3 text-base rounded hover:bg-black hover:text-white transition">
+      Move All To Bag
+    </button>
+  </div>
+
+  <div id="wishlist-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-10"></div>
+  <p id="wishlist-empty" class="hidden text-gray-500 text-center py-10">Your wishlist is empty.</p>
+
+  <!-- Just For You -->
+  <div class="flex items-center justify-between mt-20 mb-10">
+    <div class="flex items-center gap-4">
+      <span class="w-5 h-10 bg-[#DB4444] rounded"></span>
+      <h2 class="text-xl">Just For You</h2>
+    </div>
+    <div id="browse" class="mt-16 flex gap-[30px] overflow-x-auto scroll-smooth [scrollbar-width:none]">
+       <!-- Card 1 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="303" data-name="The north coat" data-price="260" data-old="360" data-off="0" data-img="images/north-coat.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=303" class="absolute inset-0 flex items-center justify-center">
+        <img src="gaminglaptop.png" alt="ASUS FHD Gaming Laptop" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=303" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">ASUS FHD Gaming Laptop</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$960 <span class="text-gray-500 line-through ml-2">$1160</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 2 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="101" data-name="Gucci duffle bag" data-price="960" data-old="1160" data-off="0" data-img="images/gucci-bag.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=101" class="absolute inset-0 flex items-center justify-center">
+        <img src="lcd.png" alt="IPS LCD Gaming Monitor" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=101" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">IPS LCD Gaming Monitor</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$1160 <span class="text-gray-500 line-through ml-2">$1200</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 3 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="102" data-name="RGB liquid CPU Cooler" data-price="160" data-old="170" data-off="0" data-img="images/cpu-cooler.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=102" class="absolute inset-0 flex items-center justify-center">
+        <img src="controller.png" alt="HAVIT HV-G92 Gamepad" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=102" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">HAVIT HV-G92 Gamepad</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$540 <span class="text-gray-500 line-through ml-2">$600</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 4 (no old price) -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="304" data-name="Small BookSelf" data-price="360" data-old="0" data-off="0" data-img="images/bookshelf.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=304" class="absolute inset-0 flex items-center justify-center">
+        <img src="rgbkeyboard.png" alt="AK-900 Wired Keyboard" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=304" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">AK-900 Wired Keyboard</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$200</p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+  </div>
+    <button class="border border-black/50 px-8 py-3 rounded hover:bg-black hover:text-white transition">
+      See All
+    </button>
+  </div>
+
+  <div id="recommend-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-10"></div>
+</main>
+
+<script>
+  // ---------- DATA ----------
+  const defaultWishlist = [
+    { id: 1, name: "Gucci duffle bag", price: 960, old: 1160, discount: 35, img: "gucci bag.png" },
+    { id: 2, name: "RGB liquid CPU Cooler", price: 1960, img: "cpu cooler.png" },
+    { id: 3, name: "GP11 Shooter USB Gamepad", price: 550, img: "usb gampad.png" },
+    { id: 4, name: "Quilted Satin Jacket", price: 750, img: "jacket.png" },
+  ];
+
+  const recommended = [
+    { id: 5, name: "ASUS FHD Gaming Laptop", price: 960, old: 1160, discount: 35, img: "gaminglaptop.png", reviews: 65 },
+    { id: 6, name: "IPS LCD Gaming Monitor", price: 1160, img: "lcd.png", reviews: 65 },
+    { id: 7, name: "HAVIT HV-G92 Gamepad", price: 560, img: "controller.png", reviews: 65, isNew: true },
+    { id: 8, name: "AK-900 Wired Keyboard", price: 200, img: "rgbkeyboard.png", reviews: 65 },
+  ];
+
+  // ---------- STORAGE ----------
+  const load = (key, fallback = []) => {
+    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+    catch { return fallback; }
+  };
+
+  const save = (key, val) => localStorage.setItem(key, JSON.stringify(val));
+
+  // Pehli baar default items daal do (testing ke liye)
+  if (localStorage.getItem("wishlist") === null) save("wishlist", defaultWishlist);
+
+  // ---------- ICONS ----------
+  const trashIcon = <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5"/></svg>;
+  const eyeIcon = <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>;
+  const cartIcon = <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>;
+  const star = <svg class="w-4 h-4 text-[#FFAD33] fill-current" viewBox="0 0 20 20"><path d="M10 1l2.6 6.2L19 8l-5 4.4L15.5 19 10 15.6 4.5 19 6 12.4 1 8l6.4-.8z"/></svg>;
+
+ function card(p, type) {
+  const badge = p.discount
+    ? <span class="absolute top-2 left-2 bg-red-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-sm">-${p.discount}%</span>
+    : p.isNew
+    ? <span class="absolute top-2 left-2 bg-green-400 text-black text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-sm">NEW</span>
+    : "";
+
+  const rating = type === "rec"
+    ? <div class="flex items-center gap-0.5 mt-1">${star.repeat(5)}<span class="text-xs text-gray-500 font-semibold ml-1">(${p.reviews})</span></div>
+    : "";
+
+  return `
+    <div class="w-full">
+      <!-- Image box -->
+      <div class="relative bg-[#F5F5F5] rounded-sm overflow-hidden h-44 sm:h-64 flex flex-col">
+
+        ${badge}
+
+        <!-- Trash / Eye icon -->
+        <button data-action="${type === "wish" ? "remove" : "view"}" data-id="${p.id}"
+          class="absolute top-2 right-2 z-10 bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:text-red-500 transition">
+          ${type === "wish" ? trashIcon : eyeIcon}
+        </button>
+
+        <!-- Product image -->
+        <div class="flex-1 flex items-center justify-center p-4">
+          <img src="${encodeURI(p.img)}" alt="${p.name}"
+            class="max-h-full max-w-[75%] object-contain">
+        </div>
+
+        <!-- Add To Cart bar (hamesha visible) -->
+        <button data-action="add" data-id="${p.id}"
+          class="w-full bg-black text-white py-2 sm:py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-sm hover:bg-gray-800 transition">
+          ${cartIcon} Add To Cart
+        </button>
+      </div>
+
+      <!-- Details -->
+      <h3 class="mt-3 text-xs sm:text-base font-medium text-black">${p.name}</h3>
+      <p class="mt-1 text-xs sm:text-base">
+        <span class="text-red-500 font-medium">$${p.price}</span>
+        ${p.old ? <span class="text-gray-500 line-through ml-2 sm:ml-3">$${p.old}</span> : ""}
+      </p>
+      ${rating}
+    </div>`;
+}
+
+  // ---------- RENDER ----------
+  function renderWishlist() {
+    const list = load("wishlist");
+    document.getElementById("wishlist-grid").innerHTML = list.map(p => card(p, "wish")).join("");
+    document.getElementById("wishlist-count").textContent = list.length;
+    document.getElementById("wishlist-empty").classList.toggle("hidden", list.length > 0);
+    // header badge (agar id="wishlist-badge" hai)
+    const b = document.getElementById("wishlist-badge");
+    if (b) b.textContent = list.length;
+  }
+
+  function renderRecommended() {
+    document.getElementById("recommend-grid").innerHTML = recommended.map(p => card(p, "rec")).join("");
+  }
+
+  function updateCartBadge() {
+    const b = document.getElementById("cart-badge");
+    if (b) b.textContent = load("cart").length;
+  }
+
+  // ---------- ACTIONS ----------
+  function addToCart(product) {
+    const cart = load("cart");
+    const found = cart.find(i => i.id === product.id);
+    if (found) found.qty += 1;
+    else cart.push({ ...product, qty: 1 });
+    save("cart", cart);
+    updateCartBadge();
+  }
+
+  // Event delegation: ek hi listener sab buttons ke liye
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-action]");
+    if (!btn) return;
+    const id = Number(btn.dataset.id);
+    const action = btn.dataset.action;
+
+    if (action === "remove") {
+      save("wishlist", load("wishlist").filter(p => p.id !== id));
+      renderWishlist();
+    }
+    if (action === "add") {
+      const product = [...load("wishlist"), ...recommended].find(p => p.id === id);
+      if (product) addToCart(product);
+    }
+    if (action === "view") {
+      // eye icon: product detail page ya wishlist mein add
+      const product = recommended.find(p => p.id === id);
+      const wl = load("wishlist");
+      if (product && !wl.some(p => p.id === id)) {
+        wl.push(product);
+        save("wishlist", wl);
+        renderWishlist();
+      }
+    }
+  });
+
+  document.getElementById("move-all").addEventListener("click", () => {
+    load("wishlist").forEach(addToCart);
+    save("wishlist", []);
+    renderWishlist();
+  });
+
+  // ---------- INIT ----------
+  renderWishlist();
+  renderRecommended();
+  updateCartBadge();
+</script>
+
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-6 py-3 rounded opacity-0 pointer-events-none transition-opacity duration-300 z-50"></div>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white">
+    <div class="max-w-6xl mx-auto px-4 pt-16 pb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-sm">
+      <div class="col-span-2 md:col-span-1">
+        <h5 class="text-2xl font-semibold mb-5">Exclusive</h5>
+        <p class="text-lg mb-4">Subscribe</p>
+        <p class="mb-4">Get 10% off your first order</p>
+        <form class="flex items-center border border-white rounded px-3 py-2 max-w-xs">
+          <input type="email" placeholder="Enter your email" class="bg-transparent w-full outline-none placeholder-gray-400" />
+          <button type="submit" aria-label="Subscribe"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+        </form>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Support</h5>
+        <p class="mb-4">111 Bijoy sarani, Dhaka,<br />DH 1515, Bangladesh.</p>
+        <p class="mb-4">exclusive@gmail.com</p>
+        <p>+88015-88888-9999</p>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Account</h5>
+        <ul class="space-y-3">
+          <li><a href="account.html">My Account</a></li><li><a href="login.html">Login / Register</a></li>
+          <li><a href="cart.html">Cart</a></li><li><a href="wishlist.html">Wishlist</a></li><li><a href="index.html">Shop</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Quick Link</h5>
+        <ul class="space-y-3">
+          <li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms Of Use</a></li>
+          <li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Download App</h5>
+        <p class="text-xs text-gray-400 mb-2">Save $3 with App New User Only</p>
+        <div class="flex gap-2 mb-4">
+          <div class="w-20 h-20 bg-white rounded-sm"></div>
+          <div class="flex flex-col gap-2 text-xs">
+            <a href="#" class="border border-gray-400 rounded px-3 py-2">Google Play</a>
+            <a href="#" class="border border-gray-400 rounded px-3 py-2">App Store</a>
+          </div>
+        </div>
+        <div class="flex gap-5 text-lg"><a href="#">f</a><a href="#">🐦</a><a href="#">📷</a><a href="#">in</a></div>
+      </div>
+    </div>
+    <p class="border-t border-gray-800 text-center text-gray-500 text-sm py-4">© Copyright Rimel 2022. All right reserved</p>
+  </footer>
+
+  <script>
+    // ---- Data (images go in /images) ----
+    const DEFAULT_WISHLIST = [
+      { id: 101, name: 'Gucci duffle bag',       price: 960,  old: 1160, off: 35, img: 'images/gucci-bag.png' },
+      { id: 102, name: 'RGB liquid CPU Cooler',  price: 1960, img: 'images/cpu-cooler.png' },
+      { id: 103, name: 'GP11 Shooter USB Gamepad', price: 550, img: 'images/gp11-gamepad.png' },
+      { id: 104, name: 'Quilted Satin Jacket',   price: 750,  img: 'images/jacket.png' }
+    ];
+    const JUST_FOR_YOU = [
+      { id: 201, name: 'ASUS FHD Gaming Laptop', price: 960,  old: 1160, off: 35, rating: 5, reviews: 65, img: 'images/laptop.png' },
+      { id: 202, name: 'IPS LCD Gaming Monitor', price: 1160, rating: 5, reviews: 65, img: 'images/monitor.png' },
+      { id: 203, name: 'HAVIT HV-G92 Gamepad',   price: 560,  isNew: true, rating: 5, reviews: 65, img: 'images/havit-gamepad.png' },
+      { id: 204, name: 'AK-900 Wired Keyboard',  price: 200,  rating: 5, reviews: 65, img: 'images/keyboard.png' }
+    ];
+
+    // ---- Storage helpers ----
+    const read = (key, fallback) => {
+      try { const v = JSON.parse(localStorage.getItem(key)); if (Array.isArray(v)) return v; } catch (e) {}
+      return fallback;
+    };
+    const write = (key, val) => { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} };
+
+    let wishlist = read('wishlist', JSON.parse(JSON.stringify(DEFAULT_WISHLIST)));
+
+    const $ = (id) => document.getElementById(id);
+    const stars = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
+
+    // ---- Cart (same format as cart.html) ----
+    function addToCart(p) {
+      const cart = read('cart', []);
+      const found = cart.find((i) => i.id === p.id);
+      if (found) found.qty += 1;
+      else cart.push({ id: p.id, name: p.name, price: p.price, qty: 1, img: p.img });
+      write('cart', cart);
+    }
+    function updateBadges() {
+      $('wishBadge').textContent = wishlist.length;
+      $('wishCount').textContent = wishlist.length;
+      $('cartBadge').textContent = read('cart', []).reduce((s, i) => s + i.qty, 0);
+    }
+
+    // ---- Card template ----
+    function card(p, type) {
+      const badge = p.off
+        ? <span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded">-${p.off}%</span>
+        : p.isNew ? <span class="absolute top-3 left-3 bg-green-400 text-white text-xs px-3 py-1 rounded">NEW</span> : '';
+      const icon = type === 'wish'
+        ? `<button data-remove="${p.id}" aria-label="Remove ${p.name}" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:text-brand shadow-sm">
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></button>`
+        : `<a href="#" aria-label="Quick view" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:text-brand shadow-sm">
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>`;
+      const old = p.old ? <span class="text-gray-500 line-through ml-3">$${p.old}</span> : '';
+      const rating = p.rating ? <p class="text-yellow-400 text-sm mt-1">${stars(p.rating)} <span class="text-gray-500 ml-1">(${p.reviews})</span></p> : '';
+      return `
+        <article>
+          <div class="relative bg-gray-100 rounded overflow-hidden aspect-square flex items-center justify-center">
+            <img src="${p.img}" alt="${p.name}" class="max-w-[70%] max-h-[70%] object-contain" onerror="this.style.visibility='hidden'" />
+            ${badge}${icon}
+            <button data-add="${p.id}" data-type="${type}" class="absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 flex items-center justify-center gap-2 hover:bg-gray-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Add To Cart
+            </button>
+          </div>
+          <h3 class="mt-4 text-sm sm:text-base font-medium"><a href="product.html?id=${p.id}" class="hover:text-brand">${p.name}</a></h3>
+          <p class="mt-1 text-brand text-sm sm:text-base">$${p.price}${old}</p>
+          ${rating}
+        </article>`;
+    }
+
+    function render() {
+      $('wishGrid').innerHTML = wishlist.map((p) => card(p, 'wish')).join('');
+      $('wishEmpty').classList.toggle('hidden', wishlist.length > 0);
+      $('justGrid').innerHTML = JUST_FOR_YOU.map((p) => card(p, 'just')).join('');
+      $('moveAll').disabled = wishlist.length === 0;
+      $('moveAll').classList.toggle('opacity-50', wishlist.length === 0);
+      updateBadges();
+    }
+
+    // ---- Toast ----
+    let timer;
+    function toast(msg) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.classList.remove('opacity-0');
+      clearTimeout(timer);
+      timer = setTimeout(() => t.classList.add('opacity-0'), 2200);
+    }
+
+    // ---- Events ----
+    document.addEventListener('click', (e) => {
+      const rm = e.target.closest('[data-remove]');
+      if (rm) {
+        const id = Number(rm.dataset.remove);
+        const p = wishlist.find((i) => i.id === id);
+        wishlist = wishlist.filter((i) => i.id !== id);
+        write('wishlist', wishlist);
+        render();
+        toast(p.name + ' removed from wishlist');
+        return;
+      }
+      const add = e.target.closest('[data-add]');
+      if (add) {
+        const id = Number(add.dataset.add);
+        const list = add.dataset.type === 'wish' ? wishlist : JUST_FOR_YOU;
+        const p = list.find((i) => i.id === id);
+        addToCart(p);
+        updateBadges();
+        toast(p.name + ' added to cart');
+      }
+    });
+
+    $('moveAll').addEventListener('click', () => {
+      if (!wishlist.length) return;
+      wishlist.forEach(addToCart);
+      const n = wishlist.length;
+      wishlist = [];
+      write('wishlist', wishlist);
+      render();
+      toast(n + ' item' + (n > 1 ? 's' : '') + ' moved to bag');
+    });
+
+    render();
+  </script>
+</body>
+</html>

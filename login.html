@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log In | Exclusive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#DB4444' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="font-sans text-black bg-white">
+
+  <!-- Top bar -->
+  <div class="bg-black text-white text-xs sm:text-sm py-3 px-4 text-center">
+    Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#" class="font-semibold underline ml-1">ShopNow</a>
+  </div>
+
+  <!-- Navbar -->
+  <header class="border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <a href="index.html" class="text-xl sm:text-2xl font-semibold">Exclusive</a>
+      <nav class="hidden md:flex gap-10">
+        <a href="index.html" class="hover:text-brand">Home</a>
+        <a href="contact.html" class="hover:text-brand">Contact</a>
+        <a href="about.html" class="hover:text-brand">About</a>
+        <a href="signup.html" class="hover:text-brand">Sign Up</a>
+      </nav>
+      <div class="hidden lg:flex items-center bg-gray-100 rounded px-4 py-2 w-60">
+        <input type="text" placeholder="What are you looking for?" class="bg-transparent text-xs w-full outline-none" />
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+      <!-- Mobile menu (no JS) -->
+      <details class="md:hidden relative">
+        <summary class="list-none cursor-pointer"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>
+        <div class="absolute right-0 mt-3 w-40 bg-white border border-gray-200 rounded shadow flex flex-col p-3 gap-2 z-10">
+          <a href="index.html">Home</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="signup.html">Sign Up</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <!-- Login section -->
+  <main class="grid md:grid-cols-2 items-center gap-10 md:gap-0 py-10 md:py-14">
+    <div class="bg-sky-100 h-64 md:h-[32rem] md:rounded-r-sm">
+      <!-- Replace with your own image -->
+      <img src="login.jpg" alt="Shopping cart with phone and bags" class="w-full h-full object-contain" />
+    </div>
+
+    <div class="px-6 sm:px-12 lg:px-24">
+      <div class="max-w-sm mx-auto md:mx-0">
+        <h1 class="text-3xl sm:text-4xl font-medium tracking-wide mb-4">Log in to Exclusive</h1>
+        <p class="mb-10">Enter your details below</p>
+
+        <form action="#" method="post" class="space-y-8">
+          <input type="text" name="email" placeholder="Email or Phone Number" required class="w-full border-b border-gray-400 pb-2 outline-none placeholder-gray-400 focus:border-brand" />
+          <input type="password" name="password" placeholder="Password" required class="w-full border-b border-gray-400 pb-2 outline-none placeholder-gray-400 focus:border-brand" />
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="submit" class="bg-brand text-white px-12 py-4 rounded hover:bg-red-600 transition">Log In</button>
+            <a href="#" class="text-brand hover:underline">Forget Password?</a>
+          </div>
+        </form>
+
+        <p class="mt-10 text-gray-600">
+          Don't have an account?
+          <a href="signup.html" class="text-black font-medium underline underline-offset-4 ml-2 hover:text-brand">Sign up</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white">
+    <div class="max-w-6xl mx-auto px-4 pt-16 pb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-sm">
+      <div class="col-span-2 md:col-span-1">
+        <h5 class="text-2xl font-semibold mb-5">Exclusive</h5>
+        <p class="text-lg mb-4">Subscribe</p>
+        <p class="mb-4">Get 10% off your first order</p>
+        <form class="flex items-center border border-white rounded px-3 py-2 max-w-xs">
+          <input type="email" placeholder="Enter your email" class="bg-transparent w-full outline-none placeholder-gray-400" />
+          <button type="submit" aria-label="Subscribe"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+        </form>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Support</h5>
+        <p class="mb-4">111 Bijoy sarani, Dhaka,<br />DH 1515, Bangladesh.</p>
+        <p class="mb-4">exclusive@gmail.com</p>
+        <p>+88015-88888-9999</p>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Account</h5>
+        <ul class="space-y-3">
+          <li><a href="account.html">My Account</a></li><li><a href="signup.html">Login / Register</a></li>
+          <li><a href="cart.html">Cart</a></li><li><a href="wishlist.html">Wishlist</a></li><li><a href="index.html">Shop</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Quick Link</h5>
+        <ul class="space-y-3">
+          <li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms Of Use</a></li>
+          <li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-lg mb-5">Download App</h5>
+        <p class="text-xs text-gray-400 mb-2">Save $3 with App New User Only</p>
+        <div class="flex gap-2 mb-4">
+          <div class="w-20 h-20 bg-white rounded-sm"></div>
+          <div class="flex flex-col gap-2 text-xs">
+            <a href="#" class="border border-gray-400 rounded px-3 py-2">Google Play</a>
+            <a href="#" class="border border-gray-400 rounded px-3 py-2">App Store</a>
+          </div>
+        </div>
+        <div class="flex gap-5 text-lg"><a href="#">f</a><a href="#">🐦</a><a href="#">📷</a><a href="#">in</a></div>
+      </div>
+    </div>
+    <p class="border-t border-gray-800 text-center text-gray-500 text-sm py-4">© Copyright Rimel 2022. All right reserved</p>
+  </footer>
+</body>
+</html>

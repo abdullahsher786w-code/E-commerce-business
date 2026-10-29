@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="font-['Poppins'] text-black bg-white">
+
+<div class="bg-black text-white text-sm flex items-center justify-center relative h-12 px-4">
+  <p class="text-xs sm:text-sm">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#" class="font-semibold underline ml-2">ShopNow</a></p>
+  <select class="absolute right-4 lg:right-[135px] bg-black text-white text-sm hidden sm:block"><option>English</option><option>Urdu</option></select>
+</div>
+
+<header class="border-b border-black/30">
+  <div class="mx-auto flex max-w-[1170px] items-center justify-between px-4 py-10 pb-4 pt-10">
+    <a href="index.html" class="font-['Inter'] text-2xl font-bold tracking-wide">Exclusive</a>
+    <nav class="hidden gap-12 md:flex">
+      <a href="index.html" class="border-b border-black/50 pb-1">Home</a>
+      <a href="contact.html" class="pb-1">Contact</a>
+      <a href="about.html" class="pb-1">About</a>
+      <a href="signup.html" class="pb-1">Sign Up</a>
+    </nav>
+    <div class="flex items-center gap-6">
+      <div class="hidden h-[38px] w-[243px] items-center justify-between rounded bg-[#F5F5F5] px-5 lg:flex">
+        <input class="w-full bg-transparent text-xs outline-none placeholder:text-black/50" placeholder="What are you looking for?">
+         <a href="account.html"></a><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+      <a href="wishlist.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 21s-8-5.4-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.6-8 11-8 11z"/></svg></a>
+      <a href="cart.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4h11L21 7H6"/></svg></a>
+       <a href="account.html" aria-label="Account"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <button id="menuBtn" class="md:hidden" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+    </div>
+  </div>
+</header>
+
+<section class="mx-auto flex max-w-[1170px] px-4">
+
+  <!-- Categories list -->
+  <ul class="hidden w-[217px] shrink-0 space-y-4 border-r border-black/30 pr-4 pt-10 text-base lg:block">
+    <li class="flex items-center justify-between"><a href="products.html" class="hover:text-[#DB4444]">Woman's Fashion</a><span>&rsaquo;</span></li>
+    <li class="flex items-center justify-between"><a href="products.html" class="hover:text-[#DB4444]">Men's Fashion</a><span>&rsaquo;</span></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Electronics</a></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Home &amp; Lifestyle</a></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Medicine</a></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Sports &amp; Outdoor</a></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Baby's &amp; Toys</a></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Groceries &amp; Pets</a></li>
+    <li><a href="products.html" class="hover:text-[#DB4444]">Health &amp; Beauty</a></li>
+  </ul>
+
+  <!-- Slider -->
+  <div id="slider" class="relative mt-10 h-[344px] w-full overflow-hidden bg-black text-white lg:ml-11">
+
+    <div id="slides" class="flex h-full transition-transform duration-500"></div>
+    <div id="dots" class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-3"></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  /* ---- Edit your slides here (images go in /images) ---- */
+  var SLIDES = [
+    { brand: 'iPhone 14 Series', apple: true, title: 'Up to 10%<br>off Voucher', img: 'slider 1.jpg' },
+    { brand: 'Samsung Galaxy',   title: 'Up to 15%<br>off Voucher', img: 'slider2.png' },
+    { brand: 'PlayStation 5',    title: 'Up to 20%<br>off Voucher', img: 'slider3.png' },
+    { brand: 'JBL Speakers',     title: 'Up to 25%<br>off Voucher', img: 'slider4.png' },
+    { brand: 'Gaming Laptops',   title: 'Up to 30%<br>off Voucher', img: 'slider5.png' }
+  ];
+  var DELAY = 4000;   // auto-play time in milliseconds
+
+  var APPLE = '<svg class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>';
+
+  var slider = document.getElementById('slider');
+  var track = document.getElementById('slides');
+  var dotsBox = document.getElementById('dots');
+  var current = 0, timer = null;
+
+  // Build slides
+  track.innerHTML = SLIDES.map(function (s) {
+    return '<div class="flex h-full w-full shrink-0 items-center justify-between gap-4 px-6 sm:px-16">' +
+      '<div class="z-10">' +
+        '<div class="flex items-center gap-4 text-sm sm:text-base">' + (s.apple ? APPLE : '') + '<span>' + s.brand + '</span></div>' +
+        '<h2 class="mt-5 text-3xl font-semibold leading-tight tracking-wide sm:text-5xl sm:leading-[60px]">' + s.title + '</h2>' +
+        '<a href="products.html" class="mt-6 inline-flex items-center gap-2 border-b border-white pb-1 font-medium hover:opacity-80">Shop Now <span>&rarr;</span></a>' +
+      '</div>' +
+      '<img src="' + s.img + '" alt="' + s.brand + '" class="hidden h-full max-w-[50%] object-contain sm:block" />' +
+    '</div>';
+  }).join('');
+
+  // Build dots
+  dotsBox.innerHTML = SLIDES.map(function (_, i) {
+    return '<button type="button" data-i="' + i + '" aria-label="Slide ' + (i + 1) + '" class="h-3 w-3 rounded-full"></button>';
+  }).join('');
+
+  function go(i) {
+    current = (i + SLIDES.length) % SLIDES.length;
+    track.style.transform = 'translateX(-' + current * 100 + '%)';
+    Array.prototype.forEach.call(dotsBox.children, function (d, k) {
+      var on = k === current;
+      d.className = 'h-3 w-3 rounded-full ' + (on ? 'bg-[#DB4444] ring-2 ring-white' : 'bg-gray-500 hover:bg-gray-400');
+      d.setAttribute('aria-current', on);
+    });
+  }
+  function start() { stop(); timer = setInterval(function () { go(current + 1); }, DELAY); }
+  function stop() { clearInterval(timer); }
+
+  dotsBox.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-i]'); if (!b) return;
+    go(Number(b.dataset.i)); start();
+  });
+
+  // Pause while the mouse is on the slider
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+
+  // Swipe on phones
+  var x0 = null;
+  slider.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+  slider.addEventListener('touchend', function (e) {
+    if (x0 !== null) {
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+    }
+    x0 = null; start();
+  });
+
+  go(0); start();
+})();
+</script>
+
+<!-- Flash Sales -->
+<section class="mx-auto mt-[140px] max-w-[1170px] px-4">
+  <div class="flex items-center gap-4"><span class="h-10 w-5 rounded bg-[#DB4444]"></span><b 
+    class="text-base font-semibold text-[#DB4444]">Today's</b></div>
+  <div class="mt-5 flex flex-wrap items-end justify-between gap-6">
+    <div class="flex flex-wrap items-end gap-8 sm:gap-[87px]">
+      <h2 class="font-['Inter'] text-4xl font-semibold tracking-wider">Flash Sales</h2>
+      <div id="timer1" class="flex items-end gap-4"></div>
+    </div>
+    <div class="flex gap-2" data-arrows="flash"></div>
+  </div>
+  <div id="flash" class="mt-10 flex gap-[30px] overflow-x-auto scroll-smooth [scrollbar-width:none]">
+    <div class="flex gap-4 lg:gap-8 overflow-x-auto snap-x no-scrollbar">
+
+  <!-- Card 1 -->
+  <article class="group shrink-0 snap-start w-[calc((100%-1rem)/2)] lg:w-[calc((100%-6rem)/4)]"
+           data-id="203" data-name="HAVIT HV-G92 Gamepad" data-price="120" data-old="160" data-off="40" data-img="images/havit-gamepad.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=203" class="absolute inset-0 flex items-center justify-center">
+        <img src="controller.png" alt="HAVIT HV-G92 Gamepad" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded">-40%</span>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=203" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">HAVIT HV-G92 Gamepad</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$120 <span class="text-gray-500 line-through ml-2">$160</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(88)</span></p>
+  </article>
+
+  <!-- Card 2 -->
+  <article class="group shrink-0 snap-start w-[calc((100%-1rem)/2)] lg:w-[calc((100%-6rem)/4)]"
+           data-id="204" data-name="AK-900 Wired Keyboard" data-price="960" data-old="1160" data-off="35" data-img="images/keyboard.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=204" class="absolute inset-0 flex items-center justify-center">
+        <img src="rgbkeyboard.png" alt="AK-900 Wired Keyboard" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded">-35%</span>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=204" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">AK-900 Wired Keyboard</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$960 <span class="text-gray-500 line-through ml-2">$1160</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:80%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(75)</span></p>
+  </article>
+
+  <!-- Card 3 -->
+  <article class="group shrink-0 snap-start w-[calc((100%-1rem)/2)] lg:w-[calc((100%-6rem)/4)]"
+           data-id="202" data-name="IPS LCD Gaming Monitor" data-price="370" data-old="400" data-off="30" data-img="images/monitor.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=202" class="absolute inset-0 flex items-center justify-center">
+        <img src="lcd.png" alt="IPS LCD Gaming Monitor" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded">-30%</span>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=202" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">IPS LCD Gaming Monitor</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$370 <span class="text-gray-500 line-through ml-2">$400</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(99)</span></p>
+  </article>
+
+  <!-- Card 4 -->
+  <article class="group shrink-0 snap-start w-[calc((100%-1rem)/2)] lg:w-[calc((100%-6rem)/4)]"
+           data-id="301" data-name="S-Series Comfort Chair" data-price="375" data-old="400" data-off="25" data-img="images/chair.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=301" class="absolute inset-0 flex items-center justify-center">
+        <img src="chair.png" alt="S-Series Comfort Chair" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded">-25%</span>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=301" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">S-Series Comfort Chair</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$375 <span class="text-gray-500 line-through ml-2">$400</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:90%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(99)</span></p>
+  </article>
+
+  <!-- Card 5 -->
+  <article class="group shrink-0 snap-start w-[calc((100%-1rem)/2)] lg:w-[calc((100%-6rem)/4)]"
+           data-id="302" data-name="S-Series Comfort Chair" data-price="375" data-old="400" data-off="25" data-img="images/chair.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=302" class="absolute inset-0 flex items-center justify-center">
+        <img src="chair2.png" alt="S-Series Comfort Chair" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded">-25%</span>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=302" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">S-Series Comfort Chair</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$375 <span class="text-gray-500 line-through ml-2">$400</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:90%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(99)</span></p>
+  </article>
+  </div>
+  <div class="mt-14 text-center"><a href="products.html" class="inline-block rounded bg-[#DB4444] px-12
+     py-4 text-white">View All Products</a></div>
+  <hr class="mt-16 border-black/30">
+</section>
+
+<!-- Best Selling -->
+<section class="mx-auto mt-[70px] max-w-[1170px] px-4">
+  <div class="flex items-center gap-4"><span class="h-10 w-5 rounded bg-[#DB4444]"></span><b class="font-semibold text-[#DB4444]">This Month</b></div>
+  <div class="mt-5 flex items-center justify-between">
+    <h2 class="font-['Inter'] text-4xl font-semibold tracking-wider">Best Selling Products</h2>
+    <a href="products.html" class="rounded bg-[#DB4444] px-12 py-4 text-white">View All</a>
+  </div>
+  <div id="cats" class="mt-16 grid grid-cols-2 gap-[30px] sm:grid-cols-3 lg:grid-cols-6">
+    <!-- Phones -->
+  <button type="button" data-category="phones" aria-pressed="false"
+          class="cat-card shrink-0 w-[170px] h-[145px] rounded border border-black/30 bg-white text-black flex flex-col items-center justify-center gap-4 transition hover:border-brand">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 48 48"><rect x="14" y="5" width="20" height="38" rx="3"/><path d="M21 38h6"/></svg>
+    <span class="text-sm">Phones</span>
+  </button>
+
+  <!-- Computers -->
+  <button type="button" data-category="computers" aria-pressed="false"
+          class="cat-card shrink-0 w-[170px] h-[145px] rounded border border-black/30 bg-white text-black flex flex-col items-center justify-center gap-4 transition hover:border-brand">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 48 48"><rect x="5" y="7" width="38" height="26" rx="2"/><path d="M5 27h38M17 41h14M24 33v8"/></svg>
+    <span class="text-sm">Computers</span>
+  </button>
+
+  <!-- SmartWatch -->
+  <button type="button" data-category="smartwatch" aria-pressed="false"
+          class="cat-card shrink-0 w-[170px] h-[145px] rounded border border-black/30 bg-white text-black flex flex-col items-center justify-center gap-4 transition hover:border-brand">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 48 48"><rect x="13" y="12" width="22" height="24" rx="5"/><path d="M18 12l1.5-7h9l1.5 7M18 36l1.5 7h9l1.5-7M20 30v-5M24 30v-8M28 30v-3"/></svg>
+    <span class="text-sm">SmartWatch</span>
+  </button>
+
+  <!-- Camera -->
+  <button type="button" data-category="camera" aria-pressed="false"
+          class="cat-card shrink-0 w-[170px] h-[145px] rounded border border-black/30 bg-white text-black flex flex-col items-center justify-center gap-4 transition hover:border-brand">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 48 48"><path d="M6 15h8l3-5h14l3 5h8v24H6z"/><circle cx="24" cy="26" r="7"/></svg>
+    <span class="text-sm">Camera</span>
+  </button>
+
+  <!-- HeadPhones -->
+  <button type="button" data-category="headphones" aria-pressed="false"
+          class="cat-card shrink-0 w-[170px] h-[145px] rounded border border-black/30 bg-white text-black flex flex-col items-center justify-center gap-4 transition hover:border-brand">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 48 48"><path d="M8 28v-4a16 16 0 0 1 32 0v4"/><rect x="8" y="28" width="7" height="12" rx="3"/><rect x="33" y="28" width="7" height="12" rx="3"/></svg>
+    <span class="text-sm">HeadPhones</span>
+  
+  </button>
+
+  <!-- Gaming -->
+  <button type="button" data-category="gaming" aria-pressed="false" onclick="window.location.href='productdetail.html'"
+          class="cat-card shrink-0 w-[170px] h-[145px] rounded border border-black/30 bg-white text-black flex flex-col items-center justify-center gap-4 transition hover:border-brand">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 48 48"><rect x="4" y="12" width="40" height="24" rx="6"/><path d="M14 20v8M10 24h8M30 21h.01M35 27h.01"/></svg>
+    <span class="text-sm">Gaming</span>
+  </button>
+  </div>
+</section>
+
+<!-- Browse -->
+<section class="mx-auto mt-[140px] max-w-[1170px] px-4">
+  <div class="flex items-center gap-4"><span class="h-10 w-5 rounded bg-[#DB4444]"></span><b class="font-semibold text-[#DB4444]">Categories</b></div>
+  <div class="mt-5 flex items-center justify-between">
+    <h2 class="font-['Inter'] text-4xl font-semibold tracking-wider">Browse By Category</h2>
+    <div class="flex gap-2" data-arrows="browse"></div>
+  </div>
+  <div id="browse" class="mt-16 flex gap-[30px] overflow-x-auto scroll-smooth [scrollbar-width:none]">
+       <!-- Card 1 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="303" data-name="The north coat" data-price="260" data-old="360" data-off="0" data-img="images/north-coat.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=303" class="absolute inset-0 flex items-center justify-center">
+        <img src="north coat.png" alt="The north coat" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=303" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">The north coat</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$260 <span class="text-gray-500 line-through ml-2">$360</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 2 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="101" data-name="Gucci duffle bag" data-price="960" data-old="1160" data-off="0" data-img="images/gucci-bag.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=101" class="absolute inset-0 flex items-center justify-center">
+        <img src="gucci bag.png" alt="Gucci duffle bag" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=101" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">Gucci duffle bag</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$960 <span class="text-gray-500 line-through ml-2">$1160</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 3 -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="102" data-name="RGB liquid CPU Cooler" data-price="160" data-old="170" data-off="0" data-img="images/cpu-cooler.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=102" class="absolute inset-0 flex items-center justify-center">
+        <img src="cpu cooler.png" alt="RGB liquid CPU Cooler" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=102" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">RGB liquid CPU Cooler</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$160 <span class="text-gray-500 line-through ml-2">$170</span></p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+
+  <!-- Card 4 (no old price) -->
+  <article class="group shrink-0 w-[270px]"
+           data-id="304" data-name="Small BookSelf" data-price="360" data-old="0" data-off="0" data-img="images/bookshelf.png">
+    <div class="relative bg-gray-100 rounded overflow-hidden aspect-[4/3.6] flex items-center justify-center">
+      <a href="product.html?id=304" class="absolute inset-0 flex items-center justify-center">
+        <img src="bookshelf.png" alt="Small BookSelf" class="max-w-[65%] max-h-[65%] object-contain" />
+      </a>
+      <button class="wish-btn absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm" aria-label="Add to wishlist">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <a href="product.html?id=304" class="absolute top-14 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-brand" aria-label="View product">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </a>
+      <button class="add-btn absolute bottom-0 inset-x-0 bg-black text-white text-sm py-2 transition-opacity md:opacity-0 md:group-hover:opacity-100 hover:bg-gray-800">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm sm:text-base font-medium">Small BookSelf</h3>
+    <p class="mt-1 text-sm sm:text-base text-brand">$360</p>
+    <p class="mt-1 text-xs sm:text-sm"><span class="relative inline-block text-gray-300 whitespace-nowrap">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span> <span class="text-gray-500 font-medium ml-1">(65)</span></p>
+  </article>
+  </div>
+</section>
+
+<section class="mx-auto mt-10 max-w-[1170px]">
+  <div class="relative overflow-hidden bg-black bg-[radial-gradient(circle_at_70%_50%,#3d3d3d_0%,#000_62%)] text-white">
+    <div class="grid md:grid-cols-2 items-center gap-6 px-6 sm:px-14 py-10 sm:py-14 min-h-[420px]">
+
+      <!-- Text side -->
+      <div>
+        <p class="text-neon font-semibold text-green-600 text-sm sm:text-base">Categories</p>
+        <h2 class="mt-5 text-3xl sm:text-5xl font-semibold leading-[1.25] tracking-wide">Enhance Your<br />Music Experience</h2>
+
+        <!-- Countdown circles -->
+        <div class="mt-8 flex gap-4 sm:gap-6" aria-label="Offer ends in">
+          <div class="w-[62px] h-[62px] rounded-full bg-white text-black flex flex-col items-center justify-center">
+            <span id="mbH" class="text-base font-semibold leading-none">00</span><span class="text-[11px] mt-1">Hours</span>
+          </div>
+          <div class="w-[62px] h-[62px] rounded-full bg-white text-black flex flex-col items-center justify-center">
+            <span id="mbD" class="text-base font-semibold leading-none">00</span><span class="text-[11px] mt-1">Days</span>
+          </div>
+          <div class="w-[62px] h-[62px] rounded-full bg-white text-black flex flex-col items-center justify-center">
+            <span id="mbM" class="text-base font-semibold leading-none">00</span><span class="text-[11px] mt-1">Minutes</span>
+          </div>
+          <div class="w-[62px] h-[62px] rounded-full bg-white text-black flex flex-col items-center justify-center">
+            <span id="mbS" class="text-base font-semibold leading-none">00</span><span class="text-[11px] mt-1">Seconds</span>
+          </div>
+        </div>
+
+        <a href="product.html" class="mt-10 inline-block rounded bg-neon px-12 py-4 text-sm font-medium text-green-600 hover:brightness-90 transition border-b ">Buy Now!</a>
+      </div>
+
+      <!-- Image side (put your speaker image at images/jbl-speaker.png) -->
+      <div class="flex justify-center">
+        <img src="catogories1.png" alt="JBL speaker" class="w-full max-w-[500px] max-h-[380px] object-contain" />
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Countdown: starts from 5 days 23h 59m 35s on first visit, saved in localStorage
+  (function () {
+    var end;
+    try { end = Number(localStorage.getItem('musicEnd')); } catch (e) {}
+    if (!end || end < Date.now()) {
+      end = Date.now() + (((5 * 24 + 23) * 60 + 59) * 60 + 35) * 1000;
+      try { localStorage.setItem('musicEnd', end); } catch (e) {}
+    }
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    function tick() {
+      var s = Math.max(0, Math.floor((end - Date.now()) / 1000));
+      var d = Math.floor(s / 86400); s %= 86400;
+      var h = Math.floor(s / 3600);  s %= 3600;
+      var m = Math.floor(s / 60);
+      document.getElementById('mbD').textContent = pad(d);
+      document.getElementById('mbH').textContent = pad(h);
+      document.getElementById('mbM').textContent = pad(m);
+      document.getElementById('mbS').textContent = pad(s % 60);
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
+
+
+<section class="mx-auto mt-[140px] max-w-[1170px] px-4">
+  <div class="flex items-center gap-4"><span class="h-10 w-5 rounded bg-[#DB4444]"></span><b class="text-base font-semibold text-[#DB4444]">Our Products</b></div>
+
+  <div class="mt-5 flex items-center justify-between">
+    <h2 class="font-['Inter'] text-2xl font-semibold tracking-wider sm:text-4xl">Explore Our Products</h2>
+    <div class="flex gap-2" data-arrows="explore">
+      <button id="exPrev" type="button" aria-label="Previous" class="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-xl hover:bg-gray-200">&larr;</button>
+      <button id="exNext" type="button" aria-label="Next" class="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-xl hover:bg-gray-200">&rarr;</button>
+    </div>
+  </div>
+
+  <!-- Cards: if you already have <div id="explore">, paste only the <article> cards inside it -->
+  <div id="explore" class="mt-16 grid grid-cols-1 gap-x-[30px] gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+
+  <article class="group" data-id="401" data-name="Breed Dry Dog Food" data-price="100" data-img="images/dog-food.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=401" class="absolute inset-0 flex items-center justify-center">
+        <img src="dog food.jpg" alt="Breed Dry Dog Food" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=401" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">Breed Dry Dog Food</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$100
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:60%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(35)</span></p>
+  </article>
+  <article class="group" data-id="402" data-name="CANON EOS DSLR Camera" data-price="360" data-img="images/camera.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=402" class="absolute inset-0 flex items-center justify-center">
+        <img src="dslr camera.png" alt="CANON EOS DSLR Camera" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=402" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">CANON EOS DSLR Camera</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$360
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:80%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(95)</span></p>
+  </article>
+  <article class="group" data-id="201" data-name="ASUS FHD Gaming Laptop" data-price="700" data-img="images/laptop.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=201" class="absolute inset-0 flex items-center justify-center">
+        <img src="gaminglaptop.png" alt="ASUS FHD Gaming Laptop" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=201" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">ASUS FHD Gaming Laptop</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$700
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(325)</span></p>
+  </article>
+  <article class="group" data-id="403" data-name="Curology Product Set" data-price="500" data-img="images/curology.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=403" class="absolute inset-0 flex items-center justify-center">
+        <img src="curulogy.png" alt="Curology Product Set" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=403" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">Curology Product Set</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$500
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:80%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(145)</span></p>
+  </article>
+  <article class="group" data-id="404" data-name="Kids Electric Car" data-price="960" data-img="images/kids-car.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=404" class="absolute inset-0 flex items-center justify-center">
+        <img src="kids car.png" alt="Kids Electric Car" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 rounded bg-[#00FF66] px-3 py-1 text-xs text-white">NEW</span>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=404" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">Kids Electric Car</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$960
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(65)</span></p>
+    <div class="mt-3 flex gap-3"><button type="button" aria-label="Colour 1" class="color-dot w-4 h-4 rounded-full ring-1 ring-black ring-offset-2" style="background:#8B1A1A"></button><button type="button" aria-label="Colour 2" class="color-dot w-4 h-4 rounded-full" style="background:#DB4444"></button></div>
+  </article>
+  <article class="group" data-id="405" data-name="Jr. Zoom Soccer Cleats" data-price="1160" data-img="images/cleats.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=405" class="absolute inset-0 flex items-center justify-center">
+        <img src="soccer.png" alt="Jr. Zoom Soccer Cleats" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=405" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">Jr. Zoom Soccer Cleats</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$1160
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:100%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(35)</span></p>
+    <div class="mt-3 flex gap-3"><button type="button" aria-label="Colour 1" class="color-dot w-4 h-4 rounded-full ring-1 ring-black ring-offset-2" style="background:#EEF06B"></button><button type="button" aria-label="Colour 2" class="color-dot w-4 h-4 rounded-full" style="background:#DB4444"></button></div>
+  </article>
+  <article class="group" data-id="103" data-name="GP11 Shooter USB Gamepad" data-price="660" data-img="images/gp11-gamepad.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=103" class="absolute inset-0 flex items-center justify-center">
+        <img src="usb gampad.png" alt="GP11 Shooter USB Gamepad" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <span class="absolute top-3 left-3 rounded bg-[#00FF66] px-3 py-1 text-xs text-white">NEW</span>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=103" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">GP11 Shooter USB Gamepad</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$660
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:90%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(55)</span></p>
+    <div class="mt-3 flex gap-3"><button type="button" aria-label="Colour 1" class="color-dot w-4 h-4 rounded-full ring-1 ring-black ring-offset-2" style="background:#111111"></button><button type="button" aria-label="Colour 2" class="color-dot w-4 h-4 rounded-full" style="background:#DB4444"></button></div>
+  </article>
+  <article class="group" data-id="104" data-name="Quilted Satin Jacket" data-price="660" data-img="images/jacket.png">
+    <div class="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden rounded bg-gray-100">
+      <a href="product.html?id=104" class="absolute inset-0 flex items-center justify-center">
+        <img src="jacket.png" alt="Quilted Satin Jacket" class="max-h-[65%] max-w-[65%] object-contain" />
+      </a>
+      <button type="button" class="wish-btn absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Add to wishlist"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      <a href="product.html?id=104" class="absolute top-14 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm hover:text-[#DB4444]" aria-label="View product"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></a>
+      <button type="button" class="add-btn absolute inset-x-0 bottom-0 bg-black py-2 text-sm text-white transition-opacity hover:bg-gray-800 md:opacity-0 md:group-hover:opacity-100">Add To Cart</button>
+    </div>
+    <h3 class="mt-4 text-sm font-medium sm:text-base">Quilted Satin Jacket</h3>
+    <p class="mt-1 flex items-center gap-2 text-sm text-[#DB4444] sm:text-base">$660
+      <span class="relative inline-block whitespace-nowrap text-xs text-gray-300 sm:text-sm">★★★★★<span class="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-yellow-400" style="width:90%">★★★★★</span></span>
+      <span class="text-xs font-medium text-gray-500 sm:text-sm">(55)</span></p>
+    <div class="mt-3 flex gap-3"><button type="button" aria-label="Colour 1" class="color-dot w-4 h-4 rounded-full ring-1 ring-black ring-offset-2" style="background:#184D47"></button><button type="button" aria-label="Colour 2" class="color-dot w-4 h-4 rounded-full" style="background:#DB4444"></button></div>
+  </article>
+
+  </div>
+
+  <div class="mt-14 text-center"><a href="products.html" class="inline-block rounded bg-[#DB4444] px-12 py-4 text-white hover:bg-red-600 transition">View All Products</a></div>
+</section>
+
+<!-- ================= NEW ARRIVAL ================= -->
+<section class="mx-auto mt-[140px] max-w-[1170px] px-4">
+  <div class="flex items-center gap-4"><span class="h-10 w-5 rounded bg-[#DB4444]"></span><b class="text-base font-semibold text-[#DB4444]">Featured</b></div>
+  <h2 class="mt-5 font-['Inter'] text-2xl font-semibold tracking-wider sm:text-4xl">New Arrival</h2>
+
+  <div id="arrival" class="mt-16 grid gap-[30px] md:h-[600px] md:grid-cols-4 md:grid-rows-2">
+
+    <!-- PlayStation 5 -->
+    <article class="relative min-h-[320px] overflow-hidden bg-black text-white md:col-span-2 md:row-span-2">
+      <img src="arrival1.png" alt="PlayStation 5" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6 sm:p-8">
+        <h3 class="text-2xl font-semibold tracking-wide">PlayStation 5</h3>
+        <p class="mt-4 max-w-[250px] text-sm leading-5">Black and White version of the PS5 coming out on sale.</p>
+        <a href="products.html" class="mt-4 inline-block font-medium underline underline-offset-4 hover:opacity-80">Shop Now</a>
+      </div>
+    </article>
+
+    <!-- Women's Collections -->
+    <article class="relative min-h-[240px] overflow-hidden bg-black text-white md:col-span-2">
+      <img src="arrival2.jpg" alt="Women's Collections" class="absolute inset-0 h-full w-full object-cover object-right" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6 sm:p-8">
+        <h3 class="text-2xl font-semibold tracking-wide">Women's Collections</h3>
+        <p class="mt-4 max-w-[255px] text-sm leading-5">Featured woman collections that give you another vibe.</p>
+        <a href="products.html" class="mt-4 inline-block font-medium underline underline-offset-4 hover:opacity-80">Shop Now</a>
+      </div>
+    </article>
+
+    <!-- Speakers -->
+    <article class="relative min-h-[240px] overflow-hidden bg-black text-white">
+      <img src="arrival3.png" alt="Speakers" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6">
+        <h3 class="text-2xl font-semibold tracking-wide">Speakers</h3>
+        <p class="mt-3 text-sm leading-5">Amazon wireless speakers</p>
+        <a href="products.html" class="mt-3 inline-block font-medium underline underline-offset-4 hover:opacity-80">Shop Now</a>
+      </div>
+    </article>
+
+    <!-- Perfume -->
+    <article class="relative min-h-[240px] overflow-hidden bg-black text-white">
+      <img src="arrival4.png" alt="Perfume" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6">
+        <h3 class="text-2xl font-semibold tracking-wide">Perfume</h3>
+        <p class="mt-3 text-sm leading-5">GUCCI INTENSE OUD EDP</p>
+        <a href="products.html" class="mt-3 inline-block font-medium underline underline-offset-4 hover:opacity-80">Shop Now</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="mx-auto mt-[140px] mb-[140px] grid max-w-[1170px] gap-16 px-4 text-center sm:grid-cols-3">
+  <div class="flex flex-col items-center">
+    <span class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-300">
+      <span class="flex h-14 w-14 items-center justify-center rounded-full bg-black text-white">
+        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M1 6h13v10H1zM14 9h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+      </span>
+    </span>
+    <h4 class="mt-6 text-lg font-semibold uppercase">Free and fast delivery</h4>
+    <p class="mt-2 text-sm">Free delivery for all orders over $140</p>
+  </div>
+  <div class="flex flex-col items-center">
+    <span class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-300">
+      <span class="flex h-14 w-14 items-center justify-center rounded-full bg-black text-white">
+        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg>
+      </span>
+    </span>
+    <h4 class="mt-6 text-lg font-semibold uppercase">24/7 customer service</h4>
+    <p class="mt-2 text-sm">Friendly 24/7 customer support</p>
+  </div>
+  <div class="flex flex-col items-center">
+    <span class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-300">
+      <span class="flex h-14 w-14 items-center justify-center rounded-full bg-black text-white">
+        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+    </span>
+    <h4 class="mt-6 text-lg font-semibold uppercase">Money back guarantee</h4>
+    <p class="mt-2 text-sm">We return money within 30 days</p>
+  </div>
+</section>
+
+
+<div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded bg-black px-6 py-3 text-sm text-white opacity-0 transition-opacity duration-300"></div>
+
+
+<!-- Services -->
+<section id="services" class="mx-auto mt-[140px] grid max-w-[1170px] gap-16 px-4 text-center sm:grid-cols-3"></section>
+
+<div class="mx-auto mt-10 flex max-w-[1170px] justify-end px-4"><button onclick="scrollTo({top:0,behavior:'smooth'})" class="size-[46px] rounded-full bg-[#F5F5F5]">↑</button></div>
+
+<!-- Footer -->
+<footer class="mt-16 bg-black text-white">
+  <div class="mx-auto grid max-w-[1170px] gap-10 px-4 py-20 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="space-y-4"><h3 class="font-['Inter'] text-2xl font-bold">Exclusive</h3><h4 class="text-xl">Subscribe</h4><p>Get 10% off your first order</p>
+      <div class="flex w-[217px] items-center rounded border border-white px-4 py-3"><input type="email" placeholder="Enter your email" class="w-full bg-transparent text-sm outline-none placeholder:text-white/50"><button>➤</button></div></div>
+    <div class="space-y-4"><h4 class="text-xl">Support</h4><p>111 Bijoy sarani, Dhaka,<br>DH 1515, Bangladesh.</p><p>exclusive@gmail.com</p><p>+92-3000-00000-0</p></div>
+    <div class="space-y-4"><h4 class="text-xl">Account</h4><a class="block" href="account.html">My Account</a><a class="block" href="signup.html">Login / Register</a><a class="block" href="cart.html">Cart</a><a class="block" href="wishlist.html">Wishlist</a><a class="block" href="index.html">Shop</a></div>
+    <div class="space-y-4"><h4 class="text-xl">Quick Link</h4><a class="block" href="privacy.html">Privacy Policy</a><a class="block" href="terms.html">Terms Of Use</a><a class="block" href="faq.html">FAQ</a><a class="block" href="contact.html">Contact</a></div>
+    <div class="space-y-4"><h4 class="text-xl">Download App</h4><small class="block text-xs text-white/70">Save $3 with App New User Only</small>
+      <div class="flex gap-2"><div class="size-20 bg-white"></div><div class="flex flex-col gap-2 text-xs"><span class="rounded border border-white/60 px-4 py-2">Google Play</span><span class="rounded border border-white/60 px-4 py-2">App Store</span></div></div>
+      <div class="flex gap-6 text-lg"><a href="#">f</a><a href="#">t</a><a href="#">ig</a><a href="#">in</a></div></div>
+  </div>
+  <div class="border-t border-white/20 py-4 text-center text-base text-white/30">© Copyright Rimel 2026. All right reserved</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

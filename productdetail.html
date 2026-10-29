@@ -1,0 +1,395 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Havic HV G-92 Gamepad | Exclusive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: "#DB4444" } } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>body { font-family: "Poppins", sans-serif; }</style>
+</head>
+<body class="text-black bg-white">
+
+  <!-- Top bar -->
+  <div class="bg-black text-white text-xs sm:text-sm text-center py-3 px-4">
+    Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+    <a href="products.html" class="underline font-semibold ml-2">ShopNow</a>
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-gray-200">
+    <div class="max-w-[1170px] mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <a href="index.html" class="text-xl sm:text-2xl font-bold">Exclusive</a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="signup.html" class="hover:underline">Sign Up</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="wishlist.html" aria-label="Wishlist" class="relative">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path
+             d="M12 21s-8-5.4-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.6-8 11-8 11z"/></svg>
+          <span id="wishBadge" class="absolute -top-2 -right-2 bg-brand text-white text-[10px] w-4 h-4 rounded-full
+           flex items-center justify-center">0</span>
+        </a>
+        <a href="cart.html" aria-label="Cart" class="relative">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6"/>
+            <circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>
+          <span id="cartBadge" class="absolute -top-2 -right-2 bg-brand text-white text-[10px] w-4 h-4 rounded-full flex items-center
+           justify-center">0</span>
+        </a>
+        <a href="account.html" aria-label="Account">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-[1170px] mx-auto px-4 py-8 sm:py-14">
+
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-500 flex flex-wrap items-center gap-2">
+      <a href="account.html" class="hover:underline">Account</a> <span>/</span>
+      <a href="products.html" class="hover:underline">Gaming</a> <span>/</span>
+      <span class="text-black">Havic HV G-92 Gamepad</span>
+    </nav>
+
+    <!-- Product -->
+    <section class="mt-10 grid grid-cols-1 lg:grid-cols-[1fr_1.9fr_1.4fr] gap-6 lg:gap-8">
+
+      <!-- Thumbnails -->
+      <div id="thumbs" class="order-2 lg:order-1 grid grid-cols-4 lg:grid-cols-1 gap-3 lg:gap-4"></div>
+
+      <!-- Main image -->
+      <div class="order-1 lg:order-2 bg-[#F5F5F5] rounded h-72 sm:h-[420px] lg:h-[500px] flex items-center justify-center p-6">
+        <img id="mainImg" src="" alt="Havic HV G-92 Gamepad" class="max-h-full max-w-full object-contain">
+      </div>
+
+      <!-- Details -->
+      <div class="order-3">
+        <h1 class="text-2xl font-semibold">Havic HV G-92 Gamepad</h1>
+
+        <div class="flex flex-wrap items-center gap-3 mt-3 text-sm">
+          <div class="flex items-center gap-0.5" id="mainStars"></div>
+          <span class="text-gray-500">(150 Reviews)</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-green-500">In Stock</span>
+        </div>
+
+        <p class="text-2xl mt-4">$192.00</p>
+
+        <p class="text-sm mt-5 pb-6 border-b border-black/40 leading-relaxed">
+          PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for
+           easy bubble free install &amp; mess free removal Pressure sensitive.
+        </p>
+
+        <!-- Colours -->
+        <div class="flex items-center gap-4 mt-6">
+          <span class="text-lg">Colours:</span>
+          <div id="colors" class="flex items-center gap-2"></div>
+        </div>
+
+        <!-- Size -->
+        <div class="flex items-center gap-4 mt-5">
+          <span class="text-lg">Size:</span>
+          <div id="sizes" class="flex items-center gap-3"></div>
+        </div>
+
+        <!-- Qty + Buy + Wish -->
+        <div class="flex items-center gap-3 sm:gap-4 mt-6">
+          <div class="flex items-stretch border border-black/50 rounded overflow-hidden">
+            <button id="minus" class="w-9 sm:w-10 hover:bg-brand hover:text-white transition text-xl" aria-label="Decrease">−</button>
+            <span id="qty" class="w-12 sm:w-20 flex items-center justify-center border-x border-black/50 font-medium">2</span>
+            <button id="plus" class="w-9 sm:w-10 bg-brand text-white text-xl" aria-label="Increase">+</button>
+          </div>
+          <button id="buyNow" class="flex-1 bg-brand text-white rounded py-2.5 font-medium hover:opacity-90 transition">Buy Now</button>
+          <button id="wishMain" class="w-10 h-10 border border-black/50 rounded flex items-center justify-center" aria-label="Wishlist">
+            <svg id="wishMainIcon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 21s-8-5.4-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.6-8 11-8 11z"/></svg>
+          </button>
+        </div>
+
+        <!-- Delivery -->
+        <div class="mt-8 border border-black/50 rounded">
+          <div class="flex items-center gap-4 p-4 border-b border-black/50">
+            <svg class="w-10 h-10 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                <path d="M1 6h13v10H1zM14 9h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            <div>
+              <p class="font-medium text-sm">Free Delivery</p>
+              <a href="#" class="text-xs underline">Enter your postal code for Delivery Availability</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <svg class="w-10 h-10 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                <path d="M3 12a9 9 0 0115-6.7L21 8M21 3v5h-5M21 12a9 9 0 01-15 6.7L3 16M3 21v-5h5"/></svg>
+            <div>
+              <p class="font-medium text-sm">Return Delivery</p>
+              <p class="text-xs">Free 30 Days Delivery Returns. <a href="#" class="underline">Details</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Item -->
+    <section class="mt-20">
+      <div class="flex items-center gap-4">
+        <span class="w-5 h-10 bg-brand rounded"></span>
+        <h2 class="text-brand font-semibold">Related Item</h2>
+      </div>
+      <div id="relatedGrid" class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10"></div>
+    </section>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-6 py-3 rounded
+   opacity-0 pointer-events-none transition-opacity duration-300 z-50"></div>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white mt-10">
+    <div class="max-w-[1170px] mx-auto px-4 py-16 grid grid-cols-2 lg:grid-cols-5 gap-10 text-sm">
+      <div class="col-span-2 lg:col-span-1 space-y-4">
+        <h3 class="text-2xl font-bold">Exclusive</h3>
+        <p class="text-lg">Subscribe</p>
+        <p>Get 10% off your first order</p>
+        <div class="flex items-center border border-white/60 rounded px-3 py-2">
+          <input type="email" placeholder="Enter your email" class="bg-transparent outline-none flex-1 min-w-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-lg font-medium">Support</h4>
+        <p>111 Bijoy sarani, Dhaka,<br>DH 1515, Bangladesh.</p>
+        <p>exclusive@gmail.com</p>
+        <p>+88015-88888-9999</p>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-lg font-medium">Account</h4>
+        <a href="account.html" class="block">My Account</a>
+        <a href="login.html" class="block">Login / Register</a>
+        <a href="cart.html" class="block">Cart</a>
+        <a href="wishlist.html" class="block">Wishlist</a>
+        <a href="index.html" class="block">Shop</a>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-lg font-medium">Quick Link</h4>
+        <a href="privacy.html" class="block">Privacy Policy</a>
+        <a href="terms.html" class="block">Terms Of Use</a>
+        <a href="faq.html" class="block">FAQ</a>
+        <a href="contact.html" class="block">Contact</a>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-lg font-medium">Download App</h4>
+        <p class="text-xs text-white/60">Save $3 with App New User Only</p>
+        <div class="flex gap-2">
+          <div class="w-20 h-20 bg-white/10 rounded"></div>
+          <div class="flex flex-col gap-2 justify-center">
+            <span class="border border-white/60 rounded px-3 py-1 text-xs">Google Play</span>
+            <span class="border border-white/60 rounded px-3 py-1 text-xs">App Store</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="border-t border-white/10 text-center text-white/50 text-sm py-4">© Copyright Rimel 2022. All right reserved</p>
+  </footer>
+
+  <script>
+    // ---------- DATA (image names yahan badlein) ----------
+    const product = {
+      id: 9, name: "Havic HV G-92 Gamepad", price: 192, old: null,
+      images: ["detail2.png", "detail3.png", "detail4.png", "detail5.png"],
+      colors: ["#A0BCE0", "#E07575"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+    };
+
+    const related = [
+      { id: 21, name: "HAVIT HV-G92 Gamepad", price: 120, old: 160, discount: 40, rating: 5, reviews: 88, img: "controller.png" },
+      { id: 22, name: "AK-900 Wired Keyboard", price: 960, old: 1160, discount: 35, rating: 4, reviews: 75, img: "rgbkeyboard.png" },
+      { id: 23, name: "IPS LCD Gaming Monitor", price: 370, old: 400, discount: 30, rating: 5, reviews: 99, img: "lcd.png" },
+      { id: 24, name: "RGB liquid CPU Cooler", price: 160, old: 170, rating: 4.5, reviews: 65, img: "cpu cooler.png" },
+    ];
+
+    // ---------- HELPERS ----------
+    const $ = (id) => document.getElementById(id);
+    const load = (k) => { try { return JSON.parse(localStorage.getItem(k)) || []; } catch { return []; } };
+    const save = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+
+    let toastTimer;
+    function showToast(msg) {
+      const t = $("toast");
+      t.textContent = msg;
+      t.classList.replace("opacity-0", "opacity-100");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.replace("opacity-100", "opacity-0"), 1800);
+    }
+
+    const starSvg = (fill) => `
+      <svg class="w-4 h-4 ${fill ? "text-[#FFAD33]" : "text-gray-300"} fill-current" viewBox="0 0 20 20">
+        <path d="M10 1l2.6 6.2L19 8l-5 4.4L15.5 19 10 15.6 4.5 19 6 12.4 1 8l6.4-.8z"/>
+      </svg>`;
+    const stars = (n) => [1, 2, 3, 4, 5].map((i) => starSvg(i <= Math.round(n))).join("");
+
+    // ---------- STATE ----------
+    let qty = 2;
+    let selectedSize = "M";
+    let selectedColor = product.colors[0];
+
+    // ---------- BADGES ----------
+    function updateBadges() {
+      $("wishBadge").textContent = load("wishlist").length;
+      $("cartBadge").textContent = load("cart").reduce((s, i) => s + i.qty, 0);
+      const inWish = load("wishlist").some((p) => p.id === product.id);
+      $("wishMainIcon").setAttribute("fill", inWish ? "#DB4444" : "none");
+      $("wishMainIcon").setAttribute("stroke", inWish ? "#DB4444" : "currentColor");
+    }
+
+    // ---------- THUMBS + MAIN IMAGE ----------
+    function renderGallery() {
+      $("thumbs").innerHTML = product.images.map((src, i) => `
+        <button data-thumb="${i}" class="thumb bg-[#F5F5F5] rounded h-20 sm:h-28 lg:h-[138px] flex items-center
+         justify-center p-3 border-2 ${i === 0 ? "border-brand" : "border-transparent"}">
+          <img src="${encodeURI(src)}" alt="Thumbnail ${i + 1}" class="max-h-full max-w-full object-contain">
+        </button>`).join("");
+      $("mainImg").src = encodeURI(product.images[0]);
+    }
+
+    $("thumbs").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-thumb]");
+      if (!btn) return;
+      $("mainImg").src = encodeURI(product.images[btn.dataset.thumb]);
+      document.querySelectorAll(".thumb").forEach((t) => {
+        t.classList.toggle("border-brand", t === btn);
+        t.classList.toggle("border-transparent", t !== btn);
+      });
+    });
+
+    // ---------- COLORS ----------
+    function renderColors() {
+      $("colors").innerHTML = product.colors.map((c) => `
+        <button data-color="${c}" aria-label="Colour ${c}"
+          class="w-5 h-5 rounded-full ${c === selectedColor ? "ring-2 ring-black ring-offset-2" : ""}"
+          style="background:${c}"></button>`).join("");
+    }
+    $("colors").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-color]");
+      if (!b) return;
+      selectedColor = b.dataset.color;
+      renderColors();
+    });
+
+    // ---------- SIZES ----------
+    function renderSizes() {
+      $("sizes").innerHTML = product.sizes.map((s) => `
+        <button data-size="${s}"
+          class="w-8 h-8 text-xs sm:text-sm rounded border ${s === selectedSize ? "bg-brand text-white border-brand"
+           : "border-black/50 hover:border-brand"}">
+          ${s}
+        </button>`).join("");
+    }
+    $("sizes").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-size]");
+      if (!b) return;
+      selectedSize = b.dataset.size;
+      renderSizes();
+    });
+
+    // ---------- QTY ----------
+    $("plus").addEventListener("click", () => { qty++; $("qty").textContent = qty; });
+    $("minus").addEventListener("click", () => { if (qty > 1) { qty--; $("qty").textContent = qty; } });
+
+    // ---------- CART / WISHLIST ----------
+    function addToCart(p, count = 1) {
+      const cart = load("cart");
+      const found = cart.find((i) => i.id === p.id && i.size === p.size && i.color === p.color);
+      if (found) found.qty += count;
+      else cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, size: p.size, color: p.color, qty: count });
+      save("cart", cart);
+      updateBadges();
+    }
+
+    function toggleWish(p) {
+      let wl = load("wishlist");
+      if (wl.some((x) => x.id === p.id)) {
+        wl = wl.filter((x) => x.id !== p.id);
+        showToast("Removed from wishlist");
+      } else {
+        wl.push({ id: p.id, name: p.name, price: p.price, old: p.old, discount: p.discount, img: p.img });
+        showToast("Added to wishlist");
+      }
+      save("wishlist", wl);
+      updateBadges();
+      renderRelated();
+    }
+
+    $("buyNow").addEventListener("click", () => {
+      addToCart({ id: product.id, name: product.name, price: product.price, img: product.images[0], size: selectedSize,
+         color: selectedColor }, qty);
+      window.location.href = "checkout.html";
+    });
+
+    $("wishMain").addEventListener("click", () => {
+      toggleWish({ id: product.id, name: product.name, price: product.price, img: product.images[0] });
+    });
+
+    // ---------- RELATED ----------
+    function renderRelated() {
+      const wl = load("wishlist");
+      $("relatedGrid").innerHTML = related.map((p) => {
+        const liked = wl.some((x) => x.id === p.id);
+        return `
+        <div class="group">
+          <div class="relative bg-[#F5F5F5] rounded-sm overflow-hidden h-44 sm:h-60 flex items-center justify-center">
+            ${p.discount ? `<span class="absolute top-3 left-3 bg-brand text-white text-xs px-3 py-1 rounded-sm">-${p.discount}%</span>` : ""}
+            <button data-wish="${p.id}" aria-label="Wishlist"
+              class="absolute top-3 right-3 bg-white w-8 h-8 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="${liked ? "#DB4444" : "none"}" stroke="${liked ?
+               "#DB4444" : "currentColor"}" stroke-width="1.8"><path d="M12 21s-8-5.4-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.6-8 11-8 11z"/></svg>
+            </button>
+            <button aria-label="Quick view" class="absolute top-14 right-3 bg-white w-8 h-8 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-7
+                 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            <img src="${encodeURI(p.img)}" alt="${p.name}" class="max-h-[60%] max-w-[65%] object-contain">
+            <button data-add="${p.id}"
+              class="absolute bottom-0 left-0 w-full bg-black text-white py-2 text-sm translate-y-full group-hover:translate-y-0
+               transition-transform">
+              Add To Cart
+            </button>
+          </div>
+          <h3 class="mt-4 font-medium text-sm sm:text-base">${p.name}</h3>
+          <p class="mt-1">
+            <span class="text-brand font-medium">$${p.price}</span>
+            ${p.old ? `<span class="text-gray-500 line-through ml-3">$${p.old}</span>` : ""}
+          </p>
+          <div class="flex items-center gap-0.5 mt-1">${stars(p.rating)}<span class="text-sm text-gray-500 font-semibold ml-1">(${p.reviews})
+            </span></div>
+        </div>`;
+      }).join("");
+    }
+
+    $("relatedGrid").addEventListener("click", (e) => {
+      const w = e.target.closest("[data-wish]");
+      const a = e.target.closest("[data-add]");
+      if (w) toggleWish(related.find((p) => p.id === Number(w.dataset.wish)));
+      if (a) {
+        addToCart(related.find((p) => p.id === Number(a.dataset.add)));
+        showToast("Added to cart");
+      }
+    });
+
+    // ---------- INIT ----------
+    $("mainStars").innerHTML = stars(4);
+    renderGallery();
+    renderColors();
+    renderSizes();
+    renderRelated();
+    updateBadges();
+  </script>
+</body>
+</html>

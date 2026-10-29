@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | Exclusive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ["Poppins", "system-ui", "sans-serif"] }, colors: { brand: "#DB4444" } } }
+    };
+  </script>
+  <style>
+    .panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+    .panel.open { grid-template-rows: 1fr; }
+    .panel > div { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) { .panel { transition: none; } }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="font-sans text-neutral-800 bg-white">
+
+  <div class="bg-black text-white text-center text-sm py-3 px-4">
+    Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+    <a href="#" class="underline font-medium ml-2">ShopNow</a>
+  </div>
+
+  <header class="border-b border-neutral-200 sticky top-0 bg-white z-30">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold">Exclusive</a>
+      <nav class="hidden md:flex gap-10">
+        <a href="index.html" class="hover:text-brand">Home</a>
+        <a href="contact.html" class="hover:text-brand">Contact</a>
+        <a href="about.html" class="hover:text-brand">About</a>
+        <a href="signup.html" class="hover:text-brand">Sign Up</a>
+      </nav>
+      <a href="contact.html" class="md:hidden text-sm font-medium text-brand">Contact</a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <p class="text-sm text-neutral-500 mb-8">
+      <a href="index.html" class="hover:text-brand">Home</a><span class="mx-2">/</span><span class="text-neutral-900">FAQ</span>
+    </p>
+
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-4 h-10 rounded bg-brand"></span>
+      <h1 class="text-3xl md:text-4xl font-semibold">Frequently asked questions</h1>
+    </div>
+    <p class="text-neutral-500 mb-8">Quick answers about orders, delivery, returns, and your account.</p>
+
+    <!-- Search -->
+    <label for="search" class="sr-only">Search questions</label>
+    <input id="search" type="search" placeholder="Search a question, e.g. refund"
+      class="w-full border border-neutral-300 rounded px-4 py-3 mb-5 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand" />
+
+    <!-- Category tabs -->
+    <div id="tabs" class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Question categories"></div>
+
+    <!-- List -->
+    <div id="list" class="border-t border-neutral-200"></div>
+    <p id="empty" class="hidden py-10 text-center text-neutral-500">
+      No question matches your search. Try another word or <a href="contact.html" class="text-brand hover:underline">contact us</a>.
+    </p>
+
+    <!-- Still need help -->
+    <div class="mt-14 border border-neutral-200 rounded p-6 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+      <div>
+        <p class="font-medium text-lg">Still need help?</p>
+        <p class="text-sm text-neutral-500">Our team replies by email and phone.</p>
+      </div>
+      <a href="contact.html" class="bg-brand text-white text-center px-8 py-3 rounded hover:opacity-90">Contact support</a>
+    </div>
+  </main>
+
+  <footer class="bg-black text-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col sm:flex-row gap-6 justify-between text-sm">
+      <div>
+        <p class="text-2xl font-bold mb-3">Exclusive</p>
+        <p>111 Bijoy Sarani, Dhaka, DH 1515, Bangladesh.</p>
+        <p>exclusive@gmail.com &nbsp;|&nbsp; +88015-88888-9999</p>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-lg font-medium">Account</h4>
+        <a href="account.html" class="block">My Account</a>
+        <a href="login.html" class="block">Login / Register</a>
+        <a href="cart.html" class="block">Cart</a>
+        <a href="wishlist.html" class="block">Wishlist</a>
+        <a href="index.html" class="block">Shop</a>
+      </div>
+      <ul class="flex gap-6 items-start">
+        <li><a href="privacy.html" class="hover:text-brand">Privacy Policy</a></li>
+        <li><a href="terms.html" class="hover:text-brand">Terms Of Use</a></li>
+        <li><a href="faq.html" class="text-brand">FAQ</a></li>
+        <li><a href="contact.html" class="hover:text-brand">Contact</a></li>
+      </ul>
+    </div>
+    <div class="border-t border-neutral-800 py-4 text-center text-sm text-neutral-400">
+      &copy; Copyright Rimel 2022. All right reserved
+    </div>
+  </footer>
+
+  <script>
+    /* ===== Yahan se questions badlo ya naye add karo ===== */
+    const faqs = [
+      { cat: "Orders & Payment", q: "How do I place an order?", a: "Open a product, choose your colour and size, set the quantity, and click Buy Now. Then fill in your billing details at checkout and confirm." },
+      { cat: "Orders & Payment", q: "Which payment methods do you accept?", a: "We accept major debit and credit cards and other methods shown at checkout. Your card details are handled by our payment partners and are not stored on our servers." },
+      { cat: "Orders & Payment", q: "How do I use a coupon code?", a: "Type your code in the coupon box on the checkout page and click Apply Coupon. The discount appears in your order total. New customers get 10% off their first order." },
+      { cat: "Orders & Payment", q: "Can I change or cancel my order?", a: "You can change or cancel an order before it is shipped. Contact us as soon as possible with your order details and we will help." },
+
+      { cat: "Delivery", q: "How long does delivery take?", a: "Delivery time depends on your area and the product. The estimate is shown at checkout. Enter your postal code on the product page to check availability." },
+      { cat: "Delivery", q: "Is delivery free?", a: "Many products come with free delivery, which is shown on the product page. Any delivery charge is displayed before you pay." },
+      { cat: "Delivery", q: "How can I track my order?", a: "After your order ships, we send an email with tracking details. You can also see the status in My Account." },
+      { cat: "Delivery", q: "What if I am not home at delivery?", a: "The courier will try to contact you by phone. Please make sure your phone number is correct at checkout so they can reach you." },
+
+      { cat: "Returns & Refunds", q: "What is your return policy?", a: "You can return most items within 30 days of delivery if they are unused and in the original packaging with all tags and accessories." },
+      { cat: "Returns & Refunds", q: "How do I return an item?", a: "Contact our support team with your order number and the reason for return. We will tell you how to send the item back." },
+      { cat: "Returns & Refunds", q: "When will I get my refund?", a: "After we receive and check the returned item, the refund goes back to your original payment method. Your bank may take a few more days to show it." },
+      { cat: "Returns & Refunds", q: "Which items cannot be returned?", a: "For hygiene and safety reasons, opened medicine and personal care products cannot be returned. Items that arrive damaged or wrong can always be reported to us." },
+
+      { cat: "Account", q: "How do I create an account?", a: "Click Sign Up in the menu, enter your name, email, and password, and submit the form." },
+      { cat: "Account", q: "I forgot my password. What should I do?", a: "On the Login page, use the forgot password option and follow the steps sent to your email. If you do not get an email, check your spam folder or contact us." },
+      { cat: "Account", q: "How do I save items for later?", a: "Click the heart icon on any product. Your saved items appear in your Wishlist." },
+      { cat: "Account", q: "How is my personal data used?", a: "We use it only to run your orders and improve the store. Read the full details in our Privacy Policy." }
+    ];
+
+    const cats = ["All", ...new Set(faqs.map(f => f.cat))];
+    const tabs = document.getElementById("tabs");
+    const list = document.getElementById("list");
+    const search = document.getElementById("search");
+    const empty = document.getElementById("empty");
+    let activeCat = "All";
+
+    const chevron = '<svg class="chev shrink-0 transition-transform" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+
+    // Build tabs
+    cats.forEach(c => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = c;
+      b.dataset.cat = c;
+      tabs.appendChild(b);
+    });
+
+    // Build questions
+    faqs.forEach((f, i) => {
+      const item = document.createElement("div");
+      item.className = "faq-item border-b border-neutral-200";
+      item.dataset.cat = f.cat;
+      item.dataset.text = (f.q + " " + f.a).toLowerCase();
+      item.innerHTML = `
+        <h2>
+          <button type="button" class="q w-full flex items-center justify-between gap-4 text-left py-5 font-medium hover:text-brand focus:outline-none focus-visible:text-brand"
+            aria-expanded="false" aria-controls="a${i}">
+            <span>${f.q}</span>${chevron}
+          </button>
+        </h2>
+        <div id="a${i}" class="panel" role="region">
+          <div><p class="pb-5 text-neutral-600 leading-relaxed">${f.a}</p></div>
+        </div>`;
+      list.appendChild(item);
+    });
+
+    function paintTabs() {
+      [...tabs.children].forEach(b => {
+        const on = b.dataset.cat === activeCat;
+        b.setAttribute("aria-pressed", on);
+        b.className = "px-4 py-1.5 rounded-full text-sm border transition-colors " +
+          (on ? "bg-brand border-brand text-white" : "border-neutral-300 hover:border-brand hover:text-brand");
+      });
+    }
+
+    function filter() {
+      const term = search.value.trim().toLowerCase();
+      let shown = 0;
+      list.querySelectorAll(".faq-item").forEach(el => {
+        const ok = (activeCat === "All" || el.dataset.cat === activeCat) && el.dataset.text.includes(term);
+        el.classList.toggle("hidden", !ok);
+        if (ok) shown++;
+      });
+      empty.classList.toggle("hidden", shown > 0);
+    }
+
+    tabs.addEventListener("click", e => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      activeCat = b.dataset.cat;
+      paintTabs();
+      filter();
+    });
+    search.addEventListener("input", filter);
+
+    // Open / close answers
+    list.addEventListener("click", e => {
+      const btn = e.target.closest(".q");
+      if (!btn) return;
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", !open);
+      document.getElementById(btn.getAttribute("aria-controls")).classList.toggle("open", !open);
+      btn.querySelector(".chev").style.transform = open ? "" : "rotate(180deg)";
+    });
+
+    paintTabs();
+  </script>
+</body>
+</html>
